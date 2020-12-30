@@ -5,6 +5,10 @@ const app = express();
 app.get("/", function(req, res){
     res.render("homepage.ejs"); //Every EJS file must be in the views folder. EJS is our view engine
 });
+
+app.get("/roomspage", function(req, res){
+    res.render("roomspage.ejs"); 
+});
  
 app.use(express.static('public'));
 
