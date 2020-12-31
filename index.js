@@ -1,15 +1,12 @@
 const express = require('express');
 const app = express();
-
-
-app.get("/", function(req, res){
-    res.render("homepage.ejs"); //Every EJS file must be in the views folder. EJS is our view engine
-});
- 
+const routes = require('./routes/routes');
+const sqlcon = require('./routes/sql');
 app.use(express.static('public'));
+app.use(routes);
+app.use('/api/users',sqlcon);
 
-app.get("*", function(req, res){
-    res.send("You went to a route that doesn't exist. Shame on you.");
-});
+
+
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
