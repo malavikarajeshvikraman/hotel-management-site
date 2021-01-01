@@ -9,7 +9,6 @@ routes.get("/payment", function(req, res){
     res.render("payment.ejs"); 
 });
 
-
 routes.get("/roomspage", function(req, res){
     res.render("roomspage.ejs"); 
 });

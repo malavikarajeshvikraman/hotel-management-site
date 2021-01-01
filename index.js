@@ -14,10 +14,8 @@ app.use('/', registrationRouter);
 app.use('/', loginRouter);
 app.use(routes);
 app.use('/api/users',sqlcon);
-
 var Razorpay=require("razorpay");
 var bodyParser = require('body-parser')
-
 let instance = new Razorpay({
     key_id: 'rzp_test_u7Pw0KKUBrwYsc', // your `KEY_ID`
     key_secret: 'H6qaokUp8bv5KPbfW900Ml7z' // your `KEY_SECRET`
