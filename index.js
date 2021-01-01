@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
 var registrationRouter = require('./routes/registration');
+var loginRouter = require('./routes/login');
 const routes = require('./routes/routes');
 const sqlcon = require('./routes/sql');
 var cookieParser = require('cookie-parser')
@@ -10,6 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/', registrationRouter);
+app.use('/', loginRouter);
 app.use(routes);
 app.use('/api/users',sqlcon);
 app.use(cookieParser())
