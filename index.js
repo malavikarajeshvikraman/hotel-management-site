@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var registrationRouter = require('./routes/registration');
 const routes = require('./routes/routes');
 const sqlcon = require('./routes/sql');
-
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
 app.use(bodyParser.json());
