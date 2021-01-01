@@ -45,34 +45,42 @@
 
   <!-- ======= Hero Section ======= -->
       <div id="login" align="center">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+       
         <div class="container1" >
-            <div id="login-row" class="row justify-content-center align-items-center">
+           
+            <div id="login-row" class="row justify-content-center align-items-center" >
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" style="height: auto;" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Login</h3>
+                        <form id="login-form" class="form" action="/register" method="post" enctype='application/x-www-form-urlencoded'>
+                            <h3 class="text-center text-info">Registration</h3>
+                           
                             <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <label  class="text-info">Username:</label><br>
+                                <input type="text" name = "username"  class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <label  class="text-info">Password:</label><br>
+                                <input type="password" name="password"  class="form-control">
+                                <label  class="text-info">Confirm Password:</label><br>
+                                <input type="password" name="confirm_password" class="form-control">
                             </div>
-                            <div class="form-group" style="margin-bottom: 0%;">
-                        
-                                <input type="submit" name="submit" align="center" class="btn btn-info btn-md" value="submit">
-                               
+                            <div class="form-group">
+                                <label  class="text-info">Full Name :</label><br>
+                                <input type="text" name="full_name" class="form-control">
                             </div>
-                            <div id="register-link" class="text-right"  style="margin-top: 0%;" > 
-                              <p>If you haven't registered yet register here <button><a href="/register" class="text-info">Register here</a></button></p>
+                            <div class="form-group">
+                                <label  class="text-info">Email address:</label><br>
+                                <input type="email" name="email"  class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input align ="center" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <p> <%- (typeof alertMsg!='undefined')? alertMsg:''%></p>
     </div>
     <footer id ="footer" style="color:white;">
         <%- include('partials/footer') %>

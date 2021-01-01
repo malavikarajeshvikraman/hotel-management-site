@@ -1,5 +1,5 @@
 const mysql =require('mysql');
-const pool = mysql.createPool({
+var conn = mysql.createConnection({
     connectionList:10,
     password:'12345',
     user:'root',
@@ -9,19 +9,8 @@ const pool = mysql.createPool({
 
 })
 
-let userdb = {};
-
-userdb.all = () => {
-
-    return new Promise ((resolve,reject) => {
-
-        pool.query(`SELECT * FROM users`,(err,results) => {
-            if(err){
-                return reject(err)
-            }
-            return resolve(results);
-        });
-    });
-};
-
-module.exports = userdb;
+conn.connect(function(err) {
+    if (err) throw err;
+    console.log('Database is connected successfully !');
+  });
+  module.exports = conn;
