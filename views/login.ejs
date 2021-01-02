@@ -3,6 +3,10 @@
 <head>
     <%- include('partials/head.ejs') %>
     <style>
+      html {
+        overflow-y: scroll; 
+      }
+      
       #footer {
         position: absolute;
         bottom: 0;
@@ -73,6 +77,7 @@
                 </div>
             </div>
         </div>
+        <p><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
     </div>
     <footer id ="footer" style="color:white;">
         <%- include('partials/footer') %>
