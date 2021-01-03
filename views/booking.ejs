@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head.ejs') %>
+  
+  <style>    
+      label {
+          display: block;
+          font: 1rem 'Fira Sans', sans-serif;
+            }
+
+      input,
+      label {
+          margin: .4rem 0;
+      }
+      .about1{
+        background-color: grey !important;
+        color: white !important;
+      }
+      .section-title1{
+        color: white !important;
+      }
+      .datepicker div {
+    float: left;
+    clear: none;
+    padding: 2rem;
+    text-align: center;
+    }
+    .incdec{
+        color: #43aea0;
+    }
+#date{
+    width: 100%;
+  height: 75vh;  
+  background-size: cover;
+  position: center;
+  margin-bottom: -80px;
+  align-content: center;
+}
+.button {
+  background-color: #43aea0;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 1px;
+  cursor: pointer;
+}
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+   
+    <%- include('partials/header.ejs') %>
+    
+  </header><!-- End #header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Bookings</h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- #hero -->
+
+  <main id="main">
+
+    
+
+    
+
+    <!-- ======= Our Team Section ======= -->
+    <!---->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Select your rooms!</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="portfolio-item">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+          
+                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Single</a></h3>
+
+                </div>
+              </div>           
+              <div class="incdec">
+                <button onclick="decrement()">-</button>
+                <input id=demoInput1 type=number min=0 max=5> 
+                <button onclick="increment()">+</button>               
+              </div>     
+              
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="portfolio-item">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Double</a></h3>
+
+                </div>
+              </div>              
+              <span>Rs 1200</span>
+              <div class="incdec">
+                <button onclick="decrement2()">-</button>
+                <input id=demoInput2 type=number min=0 max=5> 
+                <button onclick="increment2()">+</button>               
+              </div>  
+              <!--<p>
+                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+              </p>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>-->
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="portfolio-item">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Triple</a></h3>
+
+                </div>
+              </div>              
+              <span>Rs 1200</span>
+              <div class="incdec">
+                <button onclick="decrement3()">-</button>
+                <input id=demoInput3 type=number min=0 max=5> 
+                <button onclick="increment3()">+</button>               
+              </div>  
+              <!--<p>
+                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+              </p>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>-->
+            </div>
+          </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="portfolio-item">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Studio</a></h3>
+
+                </div>
+              </div>              
+              <span>Rs 1200</span>
+              <div class="incdec">
+                <button onclick="decrement4()">-</button>
+                <input id=demoInput4 type=number min=0 max=5> 
+                <button onclick="increment4()">+</button>               
+              </div>  
+              <!--<p>
+                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+              </p>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>-->
+            </div>
+          </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="portfolio-item">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Executive Suite</a></h3>
+
+                </div>
+              </div>              
+              <span>Rs 1200</span>
+              <div class="incdec">
+                <button onclick="decrement5()">-</button>
+                <input id=demoInput5 type=number min=0 max=5> 
+                <button onclick="increment5()">+</button>               
+              </div>  
+              <!--<p>
+                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+              </p>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>-->
+            </div>
+          </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="portfolio-item">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Presidential Suite</a></h3>
+
+                </div>
+              </div>              
+              <span>Rs 1200</span>
+              <div class="incdec">
+                <button onclick="decrement6()">-</button>
+                <input id=demoInput6 type=number min=0 max=5> 
+                <button onclick="increment6()">+</button>               
+              </div>  
+              <!--<p>
+                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+              </p>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>-->
+            </div>
+          </div>      
+
+        </div>       
+
+      </div>    
+
+    <div class="container">
+        <section id="section-title" class="date" style="margin-left: 20%;">        
+            <!-- Date picker Starts-->
+            <div class="datepicker" align="center">
+                <div><label for="start">Start date:</label>
+                    <input type="date" id="start" name="trip-start"
+                    value="2018-07-22"
+                    min="2018-01-01" max="2018-12-31">
+                </div>            
+
+                <div><label for="start">Start date:</label>
+                    <input type="date" id="start" name="trip-start"
+                    value="2018-07-22"
+                    min="2018-01-01" max="2018-12-31">
+                </div>
+                <div><a href="#" class="button">Check Availabilty</a></div>
+            </div>
+        <!-- Date picker Ends -->
+        </section>
+    </div>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <%- include('partials/footer') %>
+  </footer><!-- End #footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    function increment() {
+       document.getElementById('demoInput1').stepUp();
+    }
+    function decrement() {
+       document.getElementById('demoInput1').stepDown();
+    }
+ </script>
+ <script>
+    function increment2() {
+       document.getElementById('demoInput2').stepUp();
+    }
+    function decrement2() {
+       document.getElementById('demoInput2').stepDown();
+    }
+ </script>
+ <script>
+    function increment3() {
+       document.getElementById('demoInput3').stepUp();
+    }
+    function decrement3() {
+       document.getElementById('demoInput3').stepDown();
+    }
+ </script>
+ <script>
+    function increment4() {
+       document.getElementById('demoInput4').stepUp();
+    }
+    function decrement4() {
+       document.getElementById('demoInput4').stepDown();
+    }
+ </script>
+ <script>
+    function increment5() {
+       document.getElementById('demoInput5').stepUp();
+    }
+    function decremen5t() {
+       document.getElementById('demoInput5').stepDown();
+    }
+ </script>
+ <script>
+    function increment6() {
+       document.getElementById('demoInput6').stepUp();
+    }
+    function decrement6() {
+       document.getElementById('demoInput6').stepDown();
+    }
+ </script>
+ <script src="js/extention/choices.js"></script>
+ <script src="js/extention/flatpickr.js"></script>
+ <script>
+   flatpickr(".datepicker",
+   {});
+
+ </script>
+ <script>
+   const choices = new Choices('[data-trigger]',
+   {
+     searchEnabled: false,
+     itemSelectText: '',
+   });
+
+ </script>
+</body>
+
+</html>
