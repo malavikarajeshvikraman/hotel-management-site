@@ -12,6 +12,9 @@ routes.get("/payment", function(req, res){
 routes.get("/roomspage", function(req, res){
     res.render("roomspage.ejs"); 
 });
+routes.get("/booking", function(req, res){
+    res.render("booking.ejs"); 
+});
 
 routes.get("/*", function(req, res){
     res.send("You went to a route that doesn't exist. Shame on you.");
