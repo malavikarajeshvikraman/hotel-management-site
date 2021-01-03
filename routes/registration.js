@@ -16,7 +16,6 @@ router.post('/register', function(req, res, next) {
         
     }
     const confirm_password = req.body.confirm_password;
-// check unique email address
 var sql='SELECT * FROM registration WHERE email_address = (?)';
 db.query(sql, [inputData.email_address] ,function (err, data, fields) {
  if(err) throw err

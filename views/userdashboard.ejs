@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head.ejs') %>
+    </head>
+    <body>
+        <header id="header" class="fixed-top">
+   
+            <%- include('partials/header.ejs') %>
+            
+          </header><!-- End #header -->
+          <section id="team" class="team">
+        <h2>Welcome to Dashboard</h2>
+        <p><b>Hi </b> - <%= username %></p>
+        <p><a href="/logout">Logout</a></p>
+</section>
+
+        <footer id="footer">
+            <%- include('partials/footer') %>
+          </footer><!-- End #footer -->
+    </body>
+</html>
