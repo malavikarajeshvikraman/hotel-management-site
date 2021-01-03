@@ -7,16 +7,19 @@ var loginRouter = require('./routes/login');
 var adminRouter = require('./routes/adminlogin');
 var admindashboard = require('./routes/admindashboard');
 var logoutRouter = require('./routes/logout');
+var adminlogoutRouter = require('./routes/adminlogout')
 const routes = require('./routes/routes');
 const sqlcon = require('./routes/sql');
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
+var flash = require('req-flash');
 app.use(session({ 
     secret: '123456cat',
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 }
   }));
+app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -25,6 +28,7 @@ app.use(userdashboardRouter);
 app.use('/', adminRouter);
 app.use('/', loginRouter);
 app.use('/', logoutRouter);
+app.use('/', adminlogoutRouter);
 app.use('/', admindashboard);
 app.use(routes);
 app.use('/api/users',sqlcon);

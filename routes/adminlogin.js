@@ -3,7 +3,7 @@ var router = express.Router();
 var db=require('../db/data');
 // to display registration form 
 router.get("/adminlogin", function(req, res){
-    res.render("adminlogin.ejs"); //Every EJS file must be in the views folder. EJS is our view engine
+    res.render("admin/adminlogin.ejs"); //Every EJS file must be in the views folder. EJS is our view engine
 });
 
  // to store user input detail on post request
@@ -20,7 +20,7 @@ router.get("/adminlogin", function(req, res){
             res.redirect('/admindashboard');
         }
         else{
-            res.render('adminlogin.ejs',{alertMsg:"Your Email Address or password is wrong"});
+            res.render('admin/adminlogin.ejs',{alertMsg:"Your Email Address or password is wrong"});
         }
     })
 }) 
