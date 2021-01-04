@@ -73,9 +73,7 @@
   </section><!-- #hero -->
 
   <main id="main">
-
     
-
     
 
     <!-- ======= Our Team Section ======= -->
@@ -83,11 +81,31 @@
     <section id="team" class="team">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Select your rooms!</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+        <div class="row">
+          <section id="section-title" class="date" style="margin-left: 20%;">        
+              <!-- Date picker Starts-->
+              <div class="datepicker" align="center">
+                  <div><label for="start">Start date:</label>
+                      <input type="date" id="start" name="trip_start"
+                      value="2018-07-22"
+                      min="2018-01-01" max="2018-12-31">
+                  </div>            
+    
+                  <div><label for="start">End date:</label>
+                      <input type="date" id="start" name="trip_end"
+                      value="2018-07-22"
+                      min="2018-01-01" max="2018-12-31">
+                  </div>
+                  <div><a href="/bookingstatus" class="button">Check Availabilty</a></div>
+              </div>
+          <!-- Date picker Ends -->
+          </section>
+      </div>
 
+      <div class="section-title">
+        <h2>Select your rooms!</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
         
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
@@ -241,26 +259,7 @@
 
       </div>    
 
-    <div class="container">
-        <section id="section-title" class="date" style="margin-left: 20%;">        
-            <!-- Date picker Starts-->
-            <div class="datepicker" align="center">
-                <div><label for="start">Start date:</label>
-                    <input type="date" id="start" name="trip-start"
-                    value="2018-07-22"
-                    min="2018-01-01" max="2018-12-31">
-                </div>            
-
-                <div><label for="start">Start date:</label>
-                    <input type="date" id="start" name="trip-start"
-                    value="2018-07-22"
-                    min="2018-01-01" max="2018-12-31">
-                </div>
-                <div><a href="#" class="button">Check Availabilty</a></div>
-            </div>
-        <!-- Date picker Ends -->
-        </section>
-    </div>
+  
 
 
   </main><!-- End #main -->
