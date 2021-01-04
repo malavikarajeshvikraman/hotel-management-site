@@ -9,6 +9,7 @@ var admindashboard = require('./routes/admindashboard');
 var logoutRouter = require('./routes/logout');
 var adminlogoutRouter = require('./routes/adminlogout')
 const routes = require('./routes/routes');
+var  bookingrouter = require('./routes/booking')
 const sqlcon = require('./routes/sql');
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
@@ -30,6 +31,7 @@ app.use('/', loginRouter);
 app.use('/', logoutRouter);
 app.use('/', adminlogoutRouter);
 app.use('/', admindashboard);
+app.use('/', bookingrouter );
 app.use(routes);
 app.use('/api/users',sqlcon);
 var Razorpay=require("razorpay");
