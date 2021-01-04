@@ -29,6 +29,7 @@ app.use(userdashboardRouter);
 app.use('/', adminRouter);
 app.use('/', loginRouter);
 app.use('/', logoutRouter);
+app.use('/',booking);
 app.use('/', adminlogoutRouter);
 app.use('/', admindashboard);
 app.use('/', bookingrouter );
@@ -57,8 +58,8 @@ app.post("/api/payment/order",(req,res)=>{
 
 app.post("/api/payment/verify",(req,res)=>{
     body=req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
-    var crypto = require("crypto");
-    var expectedSignature = crypto.createHmac('sha256', 'H6qaokUp8bv5KPbfW900Ml7z')
+    var bcrypt = require("bcrypt");
+    var expectedSignature = bcrypt.createHmac('sha256', 'H6qaokUp8bv5KPbfW900Ml7z')
                                     .update(body.toString())
                                     .digest('hex');
                                     console.log("sig"+req.body.razorpay_signature);

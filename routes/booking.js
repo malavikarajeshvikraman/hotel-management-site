@@ -1,3 +1,4 @@
+
 const { render } = require('ejs');
 const express = require('express');
 var db=require('../db/data');
@@ -42,3 +43,4 @@ function function2() {
 });
 
 module.exports = routes;
+

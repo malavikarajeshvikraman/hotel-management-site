@@ -4,6 +4,17 @@
 
 <head>
   <%- include('partials/head.ejs') %>
+<style>
+  #hero .content {
+    position: absolute;
+    bottom: 20;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+</style>
 </head>
 
 <body>
@@ -16,11 +27,14 @@
   </header><!-- End #header -->
 
   <!-- ======= Hero Section ======= -->
+
   <section id="hero">
-    <div class="hero-container">
-      <h1>Welcome to Petrichor Resorts</h1>
-      <h2>Where the soul meets what it wants...</h2>
-      <a href="/roomspage" class="btn-get-started scrollto">Get Started</a>
+    <div class="hero-container">  
+      <div class="content">
+        <h1><b>Welcome to Petrichor Resort</b></h1>
+        <h2><b>Where the soul meets what it wants...</b></h2>
+        <a href="/booking" class="btn-get-started scrollto">Book Now!</a>
+      </div>  
     </div>
   </section><!-- #hero -->
 
@@ -39,10 +53,9 @@
             <img src="assets/img/about-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>Located in the heart of Jokoli District in the Sheyles Island near the lush forests of Pyeri</h3>
             <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Resort Petrichor offers travellers the best experience they'll never forget.
             </p>
             <ul>
               <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
@@ -50,9 +63,7 @@
               <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+              Book your stay with us and enjoy your time at Petrichor!
             </p>
           </div>
         </div>
@@ -66,7 +77,7 @@
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Some of the amazing services we provide you!</p>
         </div>
 
         <div class="row">
@@ -111,8 +122,8 @@
 
         <div class="text-center">
           <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a>
+          <p> Want to make your stay with us extra special? Help the forests of Pyeri sustain by donating to the ProtectPye fund by The National Forest </p>
+          <a class="cta-btn" href="https://www.nationalforest.org/donate">Call To Action</a>
         </div>
 
       </div>
@@ -130,9 +141,9 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-app">Hotel</li>
+              <li data-filter=".filter-card">Activities</li>
+              <li data-filter=".filter-web">Site-seeing</li>
             </ul>
           </div>
         </div>
@@ -143,8 +154,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1">App 1</a></h3>
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1">Balcony view</a></h3>
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"></a>
               </div>
             </div>
           </div>
@@ -153,8 +164,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3">Web 3</a></h3>
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3">Road to Pyeri Forest</a></h3>
+                <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"></a>
               </div>
             </div>
           </div>
@@ -163,8 +174,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2">App 2</a></h3>
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2">Swimming Pool</a></h3>
+                <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"></a>
               </div>
             </div>
           </div>
@@ -173,8 +184,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2">Card 2</a></h3>
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2">Spa</a></h3>
+                <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"></a>
               </div>
             </div>
           </div>
@@ -183,8 +194,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2">Web 2</a></h3>
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2">Philli Meadows</a></h3>
+                <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"></a>
               </div>
             </div>
           </div>
@@ -193,8 +204,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3">App 3</a></h3>
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3">Bedroom</a></h3>
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"></a>
               </div>
             </div>
           </div>
@@ -203,8 +214,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Card 1</a></h3>
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Mini Concert</a></h3>
+                <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"></a>
               </div>
             </div>
           </div>
@@ -213,8 +224,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3">Card 3</a></h3>
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3">Trekking</a></h3>
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"></a>
               </div>
             </div>
           </div>
@@ -223,8 +234,8 @@
             <div class="portfolio-item">
               <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h3><a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 1">Web 1</a></h3>
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 1"><i class="icofont-plus"></i></a>
+                <h3><a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 1">Kesa Ruins</a></h3>
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 1"></a>
               </div>
             </div>
           </div>
@@ -245,10 +256,10 @@
         <ul class="faq-list">
 
           <li>
-            <a data-toggle="collapse" class="" href="#faq1">How to make an account ?<i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" class="" href="#faq1">How do you create an account? <i class="icofont-simple-up"></i></a>
             <div id="faq1" class="collapse show" data-parent=".faq-list">
               <p>
-                Customers who wants to proceed to payment if they want to book a room in our hotel can proceed to register and create an account 
+                Customers who proceeds to book on our rooms can create an account in our site
               </p>
             </div>
           </li>
@@ -257,16 +268,16 @@
             <a data-toggle="collapse" href="#faq2" class="collapsed">How do I find available hotels for the period I want to stay? <i class="icofont-simple-up"></i></a>
             <div id="faq2" class="collapse" data-parent=".faq-list">
               <p>
-                In the search menu on the left containing the check-in and check-out data, please select the dates of your stay and tick ‘Show only available hotels’.
+                In the search menu on the left containing the check-in and check-out data, please select the dates of your stay and tick ‘Show only available hotels’
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq3" class="collapsed">How do I search for hotels by price? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">How do I search for rooms by price? <i class="icofont-simple-up"></i></a>
             <div id="faq3" class="collapse" data-parent=".faq-list">
               <p>
-                In the selection box at the top left of the search page you can sort the listing of hotels by price (when searching for available hotels on a specific date), popularity, class or name.
+                In the selection box at the top left of the search page you can sort the listing of rooms by price (when searching for available hotels on a specific date), popularity, class or name.
               </p>
             </div>
           </li>
@@ -284,16 +295,16 @@
             <a data-toggle="collapse" href="#faq5" class="collapsed">What's the difference between a Double room and a Twin room? <i class="icofont-simple-up"></i></a>
             <div id="faq5" class="collapse" data-parent=".faq-list">
               <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                A double room has one double bed. A twin room has two single beds.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">Does the hotel need a deposit or a payment in advance? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">Are the rates on your website per person or per room? <i class="icofont-simple-up"></i></a>
             <div id="faq6" class="collapse" data-parent=".faq-list">
               <p>
-                You will pay for your stay at the hotel. If the hotel requires a deposit, it will be clearly mentioned on the overview page of the hotel. However, note that some hotels perform a pre-authorization check on your credit card as an extra guarantee. A pre–authorization is a validity check to reserve a certain amount that would guarantee the room. This amount may correspond to the price of one night or to the total costs of your reservation. Once the credit card has been validated, the reserved amount will be released.
+                All rates on the website are per room per stay, unless stated differently.
               </p>
             </div>
           </li>
@@ -304,7 +315,7 @@
     </section><!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Our Team Section ======= -->
-    <section id="team" class="team">
+    <!-- <section id="team" class="team">
       <div class="container">
 
         <div class="section-title">
@@ -367,7 +378,7 @@
         </div>
 
       </div>
-    </section><!-- End Our Team Section -->
+    </section>End Our Team Section -->
 
     <!-- ======= Contact Us Section ======= -->
     <section id="contact" class="contact section-bg">
@@ -382,7 +393,7 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="contact-about">
-              <h3>Amoeba</h3>
+              <h3>Petrichor Resort</h3>
               <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
               <div class="social-links">
                 <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
@@ -402,7 +413,7 @@
 
               <div>
                 <i class="icofont-envelope"></i>
-                <p>info@example.com</p>
+                <p>petrichor@example.com</p>
               </div>
 
               <div>
