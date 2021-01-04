@@ -2,7 +2,7 @@ const express = require('express');
 const routes = express.Router()
 
 routes.get("/", function(req, res){
-    res.render("homepage.ejs"); //Every EJS file must be in the views folder. EJS is our view engine
+    res.render("homepage.ejs"); 
 });
 
 routes.get("/payment", function(req, res){
