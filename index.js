@@ -29,7 +29,7 @@ app.use(userdashboardRouter);
 app.use('/', adminRouter);
 app.use('/', loginRouter);
 app.use('/', logoutRouter);
-app.use('/',booking);
+
 app.use('/', adminlogoutRouter);
 app.use('/', admindashboard);
 app.use('/', bookingrouter );

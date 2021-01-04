@@ -7,7 +7,12 @@ var async=require("async");
 
 routes.get("/booking", function(req, res){
     var max =[]
-    res.render("booking.ejs",{maximum:max}); 
+    
+    if(req.session.loggedIn){
+        res.render('booking.ejs',{username:req.session.username,maximum:max})
+    }else{
+        res.redirect('/login');
+    }
 });
 
 
@@ -28,9 +33,13 @@ routes.get("/bookingstatus", function(req, res){
 function function2() {
     // all the stuff you want to happen after that pause
     console.log('finally');
-    console.log(max[0])
-    res.render('booking.ejs',{maximum : max});
-    console.log('Blah blah blah blah extra-blah');
+    console.log(req.session.username)
+    if(req.session.loggedIn){
+        res.render('booking.ejs',{username:req.session.username,maximum:max})
+    }else{
+        res.redirect('/login');
+    }
+  
 }
 
 
