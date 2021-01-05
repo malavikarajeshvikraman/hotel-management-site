@@ -14,6 +14,96 @@ router.get("/admindashboard/users", function(req, res){
         
 });
 
+
+});
+
+router.get("/admindashboard/rooms", function(req, res){
+    var sql='SELECT * FROM room';
+    db.query(sql, function (err, data, fields) {
+        if(err) throw err;
+        data .forEach(function(v){ var sql1='SELECT distinct type_name FROM room_types where roomtypeid = (?) ';
+        db.query(sql1, [v.roomtypeid],function (err, ans, fields) {
+
+            if(err) throw err;
+            ans.forEach(function(u){v.roomtype=u.type_name})
+        });
+    
+    });
+
+    function function2() {
+        // all the stuff you want to happen after that pause
+        console.log('finally');
+        console.log(req.session.username)
+        if(req.session.loggedIn){
+             res.render("admin/rooms.ejs",{ userData : data ,alertMsg: req.session.message });
+        }else{
+            res.redirect('/adminlogin');
+        }
+      
+    }
+    
+
+    setTimeout( function2, 5000);
+      
+        
+});
+
+
+});
+
+router.post('/addroom', function(req, res, next) {
+    inputData ={
+        roomno: parseInt(req.body.roomno),
+        roomtypeid: parseInt(req.body.roomtype),
+        current_price : 0
+        
+    }
+var sql='SELECT * FROM room WHERE roomno = (?)';
+db.query(sql, [inputData.roomno] ,function (err, data1, fields) {
+ if(err) throw err
+ if(data1.length>=1){
+    console.log('That looks fine');
+     req.session.message =  inputData.roomno+ " is already added .";
+   
+ }else{
+    var sql1='SELECT  distinct current_price  FROM room_types where  roomtypeid  = (?)';
+ db.query(sql1, [inputData.roomtypeid],function (err, ans, fields) {
+
+ if(err) throw err;
+
+ ans.forEach(function(u){
+    inputData.current_price=u.current_price ; });
+    console.log(inputData.current_price);
+    var sql = 'INSERT INTO room  SET ?';
+    db.query(sql, inputData, function (err, data1) {
+        if (err) throw err;
+             });
+             console.log('That looks fine too');
+             req.session.message = " Successfully added room ";
+ 
+});
+      console.log(inputData.current_price);
+    // save users data into database
+ }
+
+ function function2() {
+    // all the stuff you want to happen after that pause
+    console.log('finally');
+    console.log(req.session.username)
+    if(req.session.loggedIn){
+         res.redirect('/admindashboard/rooms');
+    }else{
+        res.redirect('/adminlogin');
+    }
+  
+}
+
+
+setTimeout( function2, 5000);
+
+ 
+})
+     
 });
 router.get('/admindashboard/users/delete/:username', function(req, res, next) {
     console.log('Got in');
@@ -66,6 +156,5 @@ db.query(sql, [inputData.email_address] ,function (err, data1, fields) {
 })
      
 });
-
 
 module.exports = router;
