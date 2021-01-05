@@ -7,6 +7,7 @@ var loginRouter = require('./routes/login');
 var adminRouter = require('./routes/adminlogin');
 var admindashboard = require('./routes/admindashboard');
 var logoutRouter = require('./routes/logout');
+var paymentrouter = require('./routes/payments');
 var adminlogoutRouter = require('./routes/adminlogout')
 const routes = require('./routes/routes');
 var  bookingrouter = require('./routes/booking')
@@ -29,7 +30,7 @@ app.use(userdashboardRouter);
 app.use('/', adminRouter);
 app.use('/', loginRouter);
 app.use('/', logoutRouter);
-
+app.use('/', paymentrouter);
 app.use('/', adminlogoutRouter);
 app.use('/', admindashboard);
 app.use('/', bookingrouter );

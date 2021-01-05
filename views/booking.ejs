@@ -164,13 +164,13 @@
               </div>           
               <div class="incdec">
                 <button onclick="decrement()">-</button>
-                <input id=demoInput1 type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[0]:0 %>"> 
+                <input id=demoInput1 name="d1" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[0]:0 %>"> 
                 <button onclick="increment()">+</button>               
               </div>     
               
             </div>
           </div>
-
+<form method = "POST" action= "/mockpay">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
@@ -183,7 +183,7 @@
               <span>Rs 1200</span>
               <div class="incdec">
                 <button onclick="decrement2()">-</button>
-                <input id=demoInput2 type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[1]:0 %>"> 
+                <input id=demoInput2 name="d2" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[1]:0 %>"> 
                 <button onclick="increment2()">+</button>               
               </div>  
               <!--<p>
@@ -209,7 +209,7 @@
               <span>Rs 1200</span>
               <div class="incdec">
                 <button onclick="decrement3()">-</button>
-                <input id=demoInput3 type=number min=0 max= "<%= (typeof maximum !='undefined')? maximum[2]:0 %>"> 
+                <input id=demoInput3 name="d3" type=number min=0 max= "<%= (typeof maximum !='undefined')? maximum[2]:0 %>"> 
                 <button onclick="increment3()">+</button>               
               </div>  
               <!--<p>
@@ -234,7 +234,7 @@
               <span>Rs 1200</span>
               <div class="incdec">
                 <button onclick="decrement4()">-</button>
-                <input id=demoInput4 type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[3]:0 %>"> 
+                <input id=demoInput4 name="d4"type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[3]:0 %>"> 
                 <button onclick="increment4()">+</button>               
               </div>  
               <!--<p>
@@ -259,7 +259,7 @@
               <span>Rs 1200</span>
               <div class="incdec">
                 <button onclick="decrement5()">-</button>
-                <input id=demoInput5 type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[4]:0 %>"> 
+                <input id=demoInput5 name="d5" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[4]:0 %>"> 
                 <button onclick="increment5()">+</button>               
               </div>  
               <!--<p>
@@ -284,7 +284,7 @@
               <span>Rs 1200</span>
               <div class="incdec">
                 <button onclick="decrement6()">-</button>
-                <input id=demoInput6 type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[5]:0 %>"> 
+                <input id=demoInput6 name="d6" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[5]:0 %>"> 
                 <button onclick="increment6()">+</button>               
               </div>  
               <!--<p>
@@ -305,12 +305,11 @@
       <section id="team" class="team">
         <div class="container">
   
-          <div class="section-title">           
-            <div><a href="/payment" class="button">Payment</a></div>
-            
+          <div class="section-title">        
+            <input align ="center" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
         </div>
       </section>
-
+    </form>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

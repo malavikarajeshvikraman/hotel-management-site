@@ -1,7 +1,7 @@
  const mysql =require('mysql');
  var conn = mysql.createConnection({
      connectionList:10,
-     password:'sandra',
+     password:'12345',
     user:'root',
      database:'hotel',
      host:'localhost',
