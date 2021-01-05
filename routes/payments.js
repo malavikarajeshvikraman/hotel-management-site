@@ -32,6 +32,8 @@ routes.post("/mockpay", function(req, res , next ){
         console.log('finally');
         console.log(max);
         console.log(req.session.username)
+        max= max.map(value => isNaN(value) ? 0 : value);
+        req.session.rooms=max;
         max[0] *=  count.d1;
         max[1] *= count.d2;
         max[2] *= count.d3;
@@ -42,6 +44,51 @@ routes.post("/mockpay", function(req, res , next ){
         if(req.session.loggedIn){
             max= max.map(value => isNaN(value) ? 0 : value);
             req.session.total = max[0]+max[1]+max[2]+max[3]+max[4]+max[5];
+            
+            console.log(req.session.total);
+            res.render('mockpay.ejs',{total:req.session.total})
+        }else{
+            res.redirect('/login');
+        }
+      
+    }
+    
+    
+            setTimeout( function2, 3000);
+        
+
+
+});
+
+routes.post("/bookedroom", function(req, res , next ){
+    count = {
+
+        order_id : ( req.body.orderid  != NaN)?  req.body.orderid:"",
+        payment_id : ( req.body.payid != NaN)?  req.body.payid:"",
+        singler : req.session.rooms[0],
+        doubler : req.session.rooms[1],
+        tripler : req.session.rooms[2],
+        studio : req.session.rooms[3],
+        executive_s : req.session.rooms[4],
+        presedential_s : req.session.rooms[5],    
+        amount : req.session.total
+    }
+    console.log(count);
+
+    var sql = 'INSERT INTO order_table (order_id,payment_id,singler,doubler,tripler,studio,executive_s,presedential_s,amount) VALUES(?,?,?,?,?,?,?,?,?)';
+    
+    db.query(sql,[count.order_id,count.payment_id,count.singler,count.doubler,count.tripler,count.studio,count.executive_s,count.presedential_s,count.amount], function (err, data) {
+      if (err) throw err;
+    });
+    
+   
+    function function2() {
+        // all the stuff you want to happen after that pause
+        console.log('finally');
+        console.log(count);
+        console.log(req.session.username)
+        
+        if(req.session.loggedIn){
             console.log(req.session.total);
             res.render('mockpay.ejs',{total:req.session.total})
         }else{

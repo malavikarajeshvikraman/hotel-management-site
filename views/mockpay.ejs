@@ -76,11 +76,14 @@
         </script>
     
         <hr/>
-        <label style = "opacity: 0;">Order id    :</label><input style = "opacity: 0;" type=text id=order-id />
-        <label style = "opacity: 0;" >payment id  :</label><input style = "opacity: 0;"  type=text id=order-pay-id />
+        <form method="POST" action="/bookedroom">
+        <label style = "opacity: 0;">Order id    :</label><input style = "opacity: 0;" type=text id=order-id name="orderid"/>
+        <label style = "opacity: 0;" >payment id  :</label><input style = "opacity: 0;"  type=text id=order-pay-id name="payid"/>
         <label style = "opacity: 0;">Signature   :</label><input  style = "opacity: 0;" type=text id=order-sig />
         <br/>
         <label>Verify Signature</label><button id="verify-button1">Verify</button>
+        <input align ="center" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+        </form>
 
         <script>
         document.getElementById('verify-button1').onclick = function(e){
