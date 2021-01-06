@@ -52,12 +52,8 @@ routes.post("/mockpay", function(req, res , next ){
         }
       
     }
-    
-    
             setTimeout( function2, 3000);
         
-
-
 });
 
 routes.post("/bookedroom", function(req, res , next ){
