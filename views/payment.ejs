@@ -19,14 +19,14 @@
                 <div>
 
                 </div>
-                <label>Amount    :</label><input type=text id=order-amt /><br/>
-                <button id="order-button1" href="/payment2">Pay</button> <br/>
+                <label>Amount    :</label><h1  id="orderamt" ><%= (typeof total !='undefined')? total:0 %></h1><br/>
+                <button value="<%= (typeof total !='undefined')? total:0 %>" id="order-button" href="/payment2">Pay</button> <br/>
 
                 <script>
-                document.getElementById('order-button1').onclick = function(e){
+                document.getElementById('order-button').onclick = function(e){
                 var url = '/api/payment/order';
                     var params = {
-                        amount: document.getElementById('order-amt').value,  
+                        amount: parseInt(document.getElementById('order-button').value)*100,  
                         currency: "INR",
                         receipt: "su001",
                         payment_capture: '1'
@@ -44,12 +44,10 @@
                 xmlHttp.send(JSON.stringify(params));
                 }
                 </script>
-                <br/>
-        <br/>
-        <br/>
-        <br/>
+    
+    
         <hr/>
-        <label>Order id   :</label><input type=text id=rzp-text /><br/>
+        <label style = "opacity: 0;">Order id   :</label><input style = "opacity: 0;" type=text id=rzp-text /><br/>
         <button id="rzp-button1">CHeckout</button>
         <div id=paymentDetails></div>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -76,19 +74,15 @@
             e.preventDefault();
         }
         </script>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+    
         <hr/>
-        <label>Order id    :</label><input type=text id=order-id />
-        <br/>
-        <label>payment id  :</label><input type=text id=order-pay-id />
-        <br/>
-        <label>Signature   :</label><input type=text id=order-sig />
-
+        <form method="POST" action="/bookedroom">
+        <label style = "opacity: 0;">Order id    :</label><input style = "opacity: 0;" type=text id=order-id name="orderid"/>
+        <label style = "opacity: 0;" >payment id  :</label><input style = "opacity: 0;"  type=text id=order-pay-id name="payid"/>
+        <label style = "opacity: 0;">Signature   :</label><input  style = "opacity: 0;" type=text id=order-sig />
         <br/>
         <label>Verify Signature</label><button id="verify-button1">Verify</button>
+        </form>
 
         <script>
         document.getElementById('verify-button1').onclick = function(e){
