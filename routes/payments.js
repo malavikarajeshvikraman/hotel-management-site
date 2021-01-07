@@ -73,16 +73,16 @@ routes.post("/bookedroom", function(req, res , next ){
         studio : req.session.rooms[3],
         executive_s : req.session.rooms[4],
         presedential_s : req.session.rooms[5],    
-        amount : req.session.total
+        amount : req.session.total,
+        date_checkin : req.session.startdate,
+        date_checkout :req.session.enddate
     }
     console.log(count);
     var sql1 = 'Select  id from  registration where username = (?);';
     db.query(sql1,req.session.username, function (err, data) {
       if (err) throw err;
-      data .forEach(function(v){ count.id=(parseInt(v.id)); 
-        req.session.userid=(parseInt(v.id)); 
-    });
-
+      data .forEach(function(v){ count.id=(parseInt(v.id));
+        req.session.userid=(parseInt(v.id)); });
       var sql = 'INSERT INTO order_table  SET ?';
     
       db.query(sql,count, function (err, data) {
@@ -115,6 +115,100 @@ routes.post("/bookedroom", function(req, res , next ){
 
 });
 
+routes.get("/pay_success", function(req, res){
+    Constants = {
+        checkin : req.session.startdate,
+        checkout : req.session.enddate,
+        id: req.session.userid,
+        booking_id : 0,
+        
+
+    }
+    var rooms = [ ];
+    var i;
+    var max= [];
+    function function0() {
+   
+    var sql1 = 'select  * from  order_table  where id = (?);';
+db.query(sql1,req.session.userid, function (err, data) {
+  if (err) throw err;
+  var v= data[data.length - 1];
+  console.log(data[data.length - 1])
+  Constants.booking_id=(parseInt(v.booking_id));
+  rooms.push(parseInt(v.singler));
+  rooms.push(parseInt(v.doubler));
+  rooms.push(parseInt(v.tripler));
+  rooms.push(parseInt(v.studio));
+  rooms.push(parseInt(v.executive_s));
+  rooms.push(parseInt(v.presedential_s));
+  var i=0;
+  rooms.forEach ( function(u) {
+    
+    i=i+1;
+    var temp=[]
+    var sql='select roomno  from room where roomtypeid = (?) and roomno not in ( select roomno from reservation where ( date_checkout > (?) ) and ( date_checkin < (?)));';
+    db.query(sql, [i,Constants.checkin , Constants.checkout], function (err, newdata, fields) {
+        if(err) throw err
+        temp=[];
+        newdata.forEach(function(v){temp.push(parseInt(v.roomno));  })
+        if(u>0)
+        {var hey = temp.slice(0,u)
+        max.push(hey);}
+        else
+        max.push([])
+    });
+  
+})
+
+
+  
+});
+setTimeout( function1, 1000);
+}
+
+function function1() {
+   
+
+setTimeout( function2, 3000);
+}
+setTimeout( function0, 10);
+
+function function2() {
+  var j;
+console.log("max :");
+console.log(max);
+for (i=1;i<=6;i++){
+  var no = max[i-1].length ;
+  if(max[i-1] != []){
+  for(j=0; j< no;j++){
+  var sql='insert into reservation( roomno, roomtypeid, id, date_checkin, date_checkout, booking_id) values (?,?,?,?,?,?);';
+  db.query(sql, [max[i-1][j],i,req.session.userid,Constants.checkin , Constants.checkout,Constants.booking_id], function (err, data, fields) {
+      if(err) throw err;
+  }); } }
+}
+setTimeout( function3, 3000);
+}
+
+function function3() {
+    // all the stuff you want to happen after that pause
+    console.log('finally');
+    console.log(req.session.username)
+    if(req.session.loggedIn){
+        res.render('booking.ejs',{username:req.session.username,maximum:max})
+    }else{
+        res.redirect('/login');
+    }
+  
+}
+
+
+      
+    
+      
+    
+   
+
+});
 
 routes.get("/pay_success", function(req, res){
     count = {

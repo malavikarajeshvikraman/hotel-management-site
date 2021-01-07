@@ -130,7 +130,7 @@
 
         <div class="section-title">
          
-
+          <form method = "POST" action= "/bookingstatus">
         <div class="row">
           <section id="section-title" class="date" style="margin-left: 20%;">        
               <!-- Date picker Starts-->
@@ -138,22 +138,24 @@
                   <div><label for="start">Start date:</label>
                       <input type="date" id="start" name="trip_start"
                       value="2018-07-22"
-                      min="2018-01-01" max="2018-12-31">
+                      min="2021-01-01" max="2021-12-31">
                   </div>            
 
 
-                  <div><label for="start">End date:</label>
-                      <input type="date" id="start" name="trip_end"
+                  <div><label for="end">End date:</label>
+                      <input type="date" id="end" name="trip_end"
                       value="2018-07-22"
-                      min="2018-01-01" max="2018-12-31">
+                      min="2021-01-01" max="2021-12-31">
                   </div>
 
-                  <div><a href = "/bookingstatus" class="button">Check Availabilty</a></div>
+                 
 
               </div>
           <!-- Date picker Ends -->
+          <div><button>Check Availabilty</button></div>
           </section>
       </div>
+      </form>
 
 
       <div class="section-title">

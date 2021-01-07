@@ -16,9 +16,10 @@ routes.get("/booking", function(req, res){
 });
 
 
-routes.get("/bookingstatus", function(req, res){
+routes.post("/bookingstatus", function(req, res,next){
     req.session.startdate = req.body.trip_start;
     req.session.enddate =  req.body.trip_end;
+    console.log(req.session.enddate);
     var i;
     var max= []
    for (i=1;i<=6;i++){
