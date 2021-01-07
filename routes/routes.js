@@ -13,6 +13,10 @@ routes.get("/mockpay", function(req, res){
     res.render("mockpay.ejs"); 
 });
 
+routes.get("/success", function(req, res){
+    res.render("success.ejs"); 
+});
+
 routes.get("/roomspage", function(req, res){
     res.render("roomspage.ejs"); 
 });
