@@ -16,14 +16,15 @@ routes.get("/booking", function(req, res){
 });
 
 
-routes.get("/bookingstatus", function(req, res){
-    var startdate = req.body.trip_start;
-    var enddate =  req.body.trip_end;
+routes.post("/bookingstatus", function(req, res,next){
+    req.session.startdate = req.body.trip_start;
+    req.session.enddate =  req.body.trip_end;
+    console.log(req.session.enddate);
     var i;
     var max= []
    for (i=1;i<=6;i++){
     var sql='select count(roomno) as counter from room where roomtypeid = (?) and roomno not in ( select roomno from reservation where ( date_checkout > (?) ) and ( date_checkin < (?)));';
-    db.query(sql, [i,startdate , enddate], function (err, data, fields) {
+    db.query(sql, [i,req.session.startdate , req.session.enddate], function (err, data, fields) {
         if(err) throw err
         data .forEach(function(v){ max.push(parseInt(v.counter)); })
     });
