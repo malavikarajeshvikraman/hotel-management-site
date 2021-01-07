@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
+
+<style>
+    .btn-get-started scrollto {
+        
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px 10px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    border: 1px solid #fff;
+    color: #fff;
+    }
+</style>
 </head>
 
 <body>
@@ -16,9 +32,7 @@
         <section id="services" class="services section-bg">
             <div class="container">
 
-                <div>
-
-                </div>
+                
                 <label>Amount    :</label><h1  id="orderamt" ><%= (typeof total !='undefined')? total:0 %></h1><br/>
                 <button value="<%= (typeof total !='undefined')? total:0 %>" id="order-button" href="/payment2">Pay</button> <br/>
 
@@ -56,9 +70,9 @@
             var options = {
             "key": "rzp_test_u7Pw0KKUBrwYsc",  //Enter your razorpay key
             "currency": "INR",
-            "name": "Amoeba",
-            "description": "Razor Test Transaction",
-            "image": "https://previews.123rf.com/images/subhanbaghirov/subhanbaghirov1605/subhanbaghirov160500087/56875269-vector-light-bulb-icon-with-concept-of-idea-brainstorming-idea-illustration-.jpg",
+            "name": "Petrichor Resort",
+            "description": "Room-Booking payment",
+            "image": "assets/img/apple-touch-icon.jpg",
             "order_id": document.getElementById('rzp-text').value,
             "handler": function (response){
                 document.getElementById('order-pay-id').value=response.razorpay_payment_id;
@@ -83,9 +97,9 @@
         <br/>
         <label>Verify Signature</label><button id="verify-button1">Verify</button>
         </form>
-
-        
+        <br>
         <a href="/pay_success" class="btn-get-started scrollto">Submit</a>
+
         <script>
         document.getElementById('verify-button1').onclick = function(e){
         var url = '/api/payment/verify';
@@ -105,6 +119,7 @@
         xmlHttp.send(JSON.stringify(params));
         }
         </script>
+
             </div>
         </section>
 

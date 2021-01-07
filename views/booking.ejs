@@ -50,6 +50,15 @@
   margin: 30px 1px;
   cursor: pointer;
 }
+#hero .content {
+  position: absolute;
+  bottom: 20;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
   </style>
 
 </head>
@@ -69,10 +78,10 @@
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="#header">Home</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="/homepage">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="drop-down"><a href="#">Drop Down 2</a>
@@ -88,7 +97,7 @@
               <li><a href="#">Drop Down 4</a></li>
               <li><a href="#">Drop Down 5</a></li>
             </ul>
-          </li>
+          </li> -->
           <li><a href="#contact">Contact Us</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
@@ -101,9 +110,11 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <h1>Reserve your Rooms!</h1>
-      <p><b>Hi </b> - <%= username %></p>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <div class="content">
+        <h1>Reserve your Rooms!</h1>
+        <p><b>Hi </b> - <%= username %></p>
+      </div>  
+      
     </div>
   </section><!-- #hero -->
 
@@ -150,24 +161,25 @@
       <div class="section-title">
 
       <h2>Select your rooms!</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      <p>Please select your preferred rooms below</p>
     </div>
     <form method = "POST" action= "/payment">
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/rooms/single.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
           
-                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Single</a></h3>
+                  <h3><a href="assets/img/rooms/single.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Single</a></h3>
 
                 </div>
               </div>           
               <div class="incdec">
-                <button onclick="decrement()">-</button>
+                <span>Rs 1000</span>
+                <!-- <button onclick="decrement()">-</button> -->
                 <input id=demoInput1 name="d1" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[0]:0 %>"> 
-                <button onclick="increment()">+</button>               
+                <!-- <button onclick="increment()">+</button>                -->
               </div>     
               
             </div>
@@ -176,17 +188,17 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/rooms/double.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Double</a></h3>
+                  <h3><a href="assets/img/rooms/double.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Double</a></h3>
 
                 </div>
               </div>              
               <span>Rs 1200</span>
               <div class="incdec">
-                <button onclick="decrement2()">-</button>
+                <!-- <button onclick="decrement2()">-</button> -->
                 <input id=demoInput2 name="d2" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[1]:0 %>"> 
-                <button onclick="increment2()">+</button>               
+                <!-- <button onclick="increment2()">+</button>                -->
               </div>  
               <!--<p>
                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
@@ -202,17 +214,17 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/rooms/triple.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Triple</a></h3>
+                  <h3><a href="assets/img/rooms/triple.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Triple</a></h3>
 
                 </div>
               </div>              
-              <span>Rs 1200</span>
+              <span>Rs 1500</span>
               <div class="incdec">
-                <button onclick="decrement3()">-</button>
+                <!-- <button onclick="decrement3()">-</button> -->
                 <input id=demoInput3 name="d3" type=number min=0 max= "<%= (typeof maximum !='undefined')? maximum[2]:0 %>"> 
-                <button onclick="increment3()">+</button>               
+                <!-- <button onclick="increment3()">+</button>                -->
               </div>  
               <!--<p>
                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
@@ -227,17 +239,17 @@
           </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/rooms/studio.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Studio</a></h3>
+                  <h3><a href="assets/img/rooms/studio.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Studio</a></h3>
 
                 </div>
               </div>              
-              <span>Rs 1200</span>
+              <span>Rs 1750</span>
               <div class="incdec">
-                <button onclick="decrement4()">-</button>
+                <!-- <button onclick="decrement4()">-</button> -->
                 <input id=demoInput4 name="d4"type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[3]:0 %>"> 
-                <button onclick="increment4()">+</button>               
+                <!-- <button onclick="increment4()">+</button>                -->
               </div>  
               <!--<p>
                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
@@ -252,17 +264,17 @@
           </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/rooms/executive.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Executive Suite</a></h3>
+                  <h3><a href="assets/img/rooms/executive.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Executive Suite</a></h3>
 
                 </div>
               </div>              
-              <span>Rs 1200</span>
+              <span>Rs 2500</span>
               <div class="incdec">
-                <button onclick="decrement5()">-</button>
+                <!-- <button onclick="decrement5()">-</button> -->
                 <input id=demoInput5 name="d5" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[4]:0 %>"> 
-                <button onclick="increment5()">+</button>               
+                <!-- <button onclick="increment5()">+</button>                -->
               </div>  
               <!--<p>
                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
@@ -277,17 +289,17 @@
           </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="portfolio-item">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/rooms/presidential.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h3><a href="assets/img/team/team-2.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Presidential Suite</a></h3>
+                  <h3><a href="assets/img/rooms/presidential.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Presidential Suite</a></h3>
 
                 </div>
               </div>              
-              <span>Rs 1200</span>
+              <span>Rs 3000</span>
               <div class="incdec">
-                <button onclick="decrement6()">-</button>
+                <!-- <button onclick="decrement6()">-</button> -->
                 <input id=demoInput6 name="d6" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[5]:0 %>"> 
-                <button onclick="increment6()">+</button>               
+                <!-- <button onclick="increment6()">+</button>                -->
               </div>  
               <!--<p>
                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
