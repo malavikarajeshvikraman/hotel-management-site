@@ -2,11 +2,9 @@ const express = require('express');
 const routes = express.Router()
 var db=require('../db/data');
 
-routes.get("/payment", function(req, res){
-    res.render("payment.ejs"); 
-});
 
-routes.post("/mockpay", function(req, res , next ){
+
+routes.post("/payment", function(req, res , next ){
     count = {
 
         d1 : ( req.body.d1  != NaN)?  parseInt(req.body.d1):0,
@@ -32,33 +30,42 @@ routes.post("/mockpay", function(req, res , next ){
         console.log('finally');
         console.log(max);
         console.log(req.session.username)
-        max= max.map(value => isNaN(value) ? 0 : value);
-        req.session.rooms=max;
+        var room =[];
         max[0] *=  count.d1;
         max[1] *= count.d2;
         max[2] *= count.d3;
         max[3] *= count.d4;
         max[4] *= count.d5;
         max[5] *= count.d6;
+        room.push( count.d1);
+        room.push( count.d2);
+        room.push( count.d3);
+        room.push( count.d4);
+        room.push( count.d5);
+        room.push( count.d6);
+        room= room.map(value => isNaN(value) ? 0 : value);
+        req.session.rooms=room;
         console.log(max);
         if(req.session.loggedIn){
             max= max.map(value => isNaN(value) ? 0 : value);
             req.session.total = max[0]+max[1]+max[2]+max[3]+max[4]+max[5];
             
             console.log(req.session.total);
-            res.render('mockpay.ejs',{total:req.session.total})
+            res.render('payment.ejs',{total:req.session.total})
         }else{
             res.redirect('/login');
         }
       
     }
-            setTimeout( function2, 3000);
+    
+    
+            setTimeout( function2, 2000);
         
 });
 
 routes.post("/bookedroom", function(req, res , next ){
     count = {
-
+        id: 0,
         order_id : ( req.body.orderid  != NaN)?  req.body.orderid:"",
         payment_id : ( req.body.payid != NaN)?  req.body.payid:"",
         singler : req.session.rooms[0],
@@ -70,13 +77,19 @@ routes.post("/bookedroom", function(req, res , next ){
         amount : req.session.total
     }
     console.log(count);
-
-    var sql = 'INSERT INTO order_table (order_id,payment_id,singler,doubler,tripler,studio,executive_s,presedential_s,amount) VALUES(?,?,?,?,?,?,?,?,?)';
-    
-    db.query(sql,[count.order_id,count.payment_id,count.singler,count.doubler,count.tripler,count.studio,count.executive_s,count.presedential_s,count.amount], function (err, data) {
+    var sql1 = 'Select  id from  registration where username = (?);';
+    db.query(sql1,req.session.username, function (err, data) {
       if (err) throw err;
+      data .forEach(function(v){ count.id=(parseInt(v.id)); });
+      var sql = 'INSERT INTO order_table  SET ?';
+    
+      db.query(sql,count, function (err, data) {
+        if (err) throw err;
+      });
+      
     });
     
+   
    
     function function2() {
         // all the stuff you want to happen after that pause
@@ -86,7 +99,7 @@ routes.post("/bookedroom", function(req, res , next ){
         
         if(req.session.loggedIn){
             console.log(req.session.total);
-            res.render('mockpay.ejs',{total:req.session.total})
+            res.render('payment.ejs',{total:req.session.total})
         }else{
             res.redirect('/login');
         }
@@ -94,7 +107,7 @@ routes.post("/bookedroom", function(req, res , next ){
     }
     
     
-            setTimeout( function2, 5000);
+            setTimeout( function2, 2000);
         
 
 

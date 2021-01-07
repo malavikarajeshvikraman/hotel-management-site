@@ -43,7 +43,7 @@ function function2() {
 }
 
 
-        setTimeout( function2, 5000);
+        setTimeout( function2, 3000);
     
       
     
