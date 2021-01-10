@@ -5,7 +5,8 @@
     user:'root',
      database:'hotel',
      host:'localhost',
-     port:'3306'
+     port:'3306',
+     dateStrings:true,
 
  })
 
