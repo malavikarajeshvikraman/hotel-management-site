@@ -81,8 +81,9 @@ routes.post("/bookedroom", function(req, res , next ){
     var sql1 = 'Select  id from  registration where username = (?);';
     db.query(sql1,req.session.username, function (err, data) {
       if (err) throw err;
-      data .forEach(function(v){ count.id=(parseInt(v.id));
-        req.session.userid=(parseInt(v.id)); });
+      req.session.userid=(parseInt(data[0].id))
+      count.id=req.session.userid;
+        
       var sql = 'INSERT INTO order_table  SET ?';
     
       db.query(sql,count, function (err, data) {
