@@ -14,6 +14,18 @@ routes.post("/payment", function(req, res , next ){
         d6 : (req.body.d5  != NaN)?  parseInt(req.body.d6):0,
     }
     console.log(count);
+      //sql query to count no of days
+      var date1 = new Date(req.session.startdate); 
+      var date2 = new Date(req.session.enddate); 
+    
+      // To calculate the time difference of two dates 
+      var Difference_In_Time = date2.getDate() - date1.getDate(); 
+      
+      // To calculate the no. of days between two dates 
+      req.session.days = Difference_In_Time; 
+      console.log(req.session.days);
+      
+      //To display the final no. of days (result)
     var max= []
     for (i=1;i<=6;i++){
         var sql='select current_price from  room_types where roomtypeid = (?) ;';
@@ -47,7 +59,7 @@ routes.post("/payment", function(req, res , next ){
         console.log(max);
         if(req.session.loggedIn){
             max= max.map(value => isNaN(value) ? 0 : value);
-            req.session.total = max[0]+max[1]+max[2]+max[3]+max[4]+max[5];
+            req.session.total = (max[0]+max[1]+max[2]+max[3]+max[4]+max[5])*req.session.days;
             
             console.log(req.session.total);
             res.render('payment.ejs',{total:req.session.total})
