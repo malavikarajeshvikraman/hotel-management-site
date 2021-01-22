@@ -1,3 +1,4 @@
+const { each } = require('async');
 const express = require('express');
 const routes = express.Router()
 var db=require('../db/data');
@@ -14,18 +15,18 @@ routes.post("/payment", function(req, res , next ){
         d6 : (req.body.d5  != NaN)?  parseInt(req.body.d6):0,
     }
     console.log(count);
-      //sql query to count no of days
-      var date1 = new Date(req.session.startdate); 
-      var date2 = new Date(req.session.enddate); 
-    
-      // To calculate the time difference of two dates 
-      var Difference_In_Time = date2.getDate() - date1.getDate(); 
+        //sql query to count no of days
+        var date1 = new Date(req.session.startdate); 
+        var date2 = new Date(req.session.enddate); 
       
-      // To calculate the no. of days between two dates 
-      req.session.days = Difference_In_Time; 
-      console.log(req.session.days);
-      
-      //To display the final no. of days (result)
+        // To calculate the time difference of two dates 
+        var Difference_In_Time = date2.getDate() - date1.getDate(); 
+        
+        // To calculate the no. of days between two dates 
+        req.session.days = Difference_In_Time; 
+        console.log(req.session.days);
+        
+        //To display the final no. of days (result)
     var max= []
     for (i=1;i<=6;i++){
         var sql='select current_price from  room_types where roomtypeid = (?) ;';
@@ -40,6 +41,12 @@ routes.post("/payment", function(req, res , next ){
         // all the stuff you want to happen after that pause
         console.log('finally');
         console.log(max);
+        price_each=[];
+        
+        for(var i=0;i<max.length;i++){
+            if(max[i]>0)
+                price_each.push(max[i]);
+        }
         console.log(req.session.username)
         var room =[];
         max[0] *=  count.d1;
@@ -59,18 +66,77 @@ routes.post("/payment", function(req, res , next ){
         console.log(max);
         if(req.session.loggedIn){
             max= max.map(value => isNaN(value) ? 0 : value);
+            price_total=[];
+            for(var i=0;i<max.length;i++){
+                if(max[i]>0){
+                    price_total.push(max[i]);
+                }
+                    
+            }
+            console.log("price_total:")
+            console.log(price_total)
             req.session.total = (max[0]+max[1]+max[2]+max[3]+max[4]+max[5])*req.session.days;
-            
+            function1();
             console.log(req.session.total);
-            res.render('payment.ejs',{total:req.session.total})
+            
         }else{
             res.redirect('/login');
         }
       
     }
+    setTimeout( function2, 2000);
+    
+    function function1(){
+        //for the receipt
+        room_type=[]
+        room_no=[]
+        var i=0
+        var countt = 0
+        receipt={
+            Single: req.session.rooms[0],
+            Double: req.session.rooms[1],
+            Triple: req.session.rooms[2],
+            Studio: req.session.rooms[3],
+            Executive_Suite: req.session.rooms[4],
+            Presidential_Suite: req.session.rooms[5],
+        }
+        var i=0;
+        var j=0;
+        pe=[];
+        pt=[];
+        for (let [key, value] of Object.entries(receipt)) {
+            if(value>0){
+                countt=countt+1;
+                room_type.push(key);
+                room_no.push(value);
+                pe[j++]=price_each[i];
+            }
+            i=i+1;
+            // console.log(key, value);
+        }
+        req.session.quantity_no=countt
+        req.session.roomt=room_type
+        req.session.roomtn=room_no
+
+        console.log(req.session.rooms)
+        console.log(room_type)
+        console.log("price each n price total")
+        console.log(pe)
+
+        req.session.quantity_no=countt;
+        req.session.roomt = room_type;
+        console.log(req.session.quantity_no);
+        if(req.session.loggedIn){
+            
+            console.log(req.session.total);
+            res.render('payment2.ejs',{total:req.session.total, quantity_no:req.session.quantity_no, roomt:req.session.roomt,roomn:req.session.roomtn,price_t:price_total,price_e:pe,checkin:req.session.startdate,checkout:req.session.enddate,days:req.session.days}) //change to payment
+        }else{
+            res.redirect('/login');
+        }
+    }
     
     
-            setTimeout( function2, 2000);
+            
         
 });
 
@@ -93,9 +159,8 @@ routes.post("/bookedroom", function(req, res , next ){
     var sql1 = 'Select  id from  registration where username = (?);';
     db.query(sql1,req.session.username, function (err, data) {
       if (err) throw err;
-      req.session.userid=(parseInt(data[0].id))
-      count.id=req.session.userid;
-        
+      data .forEach(function(v){ count.id=(parseInt(v.id));
+        req.session.userid=(parseInt(v.id)); });
       var sql = 'INSERT INTO order_table  SET ?';
     
       db.query(sql,count, function (err, data) {
@@ -114,7 +179,7 @@ routes.post("/bookedroom", function(req, res , next ){
         
         if(req.session.loggedIn){
             console.log(req.session.total);
-            res.render('payment.ejs',{total:req.session.total})
+            res.render('payment2.ejs',{total:req.session.total,quantity_no:req.session.quantity_no, roomt:req.session.roomt,roomn:req.session.roomtn,price_t:price_total,price_e:pe,checkin:req.session.startdate,checkout:req.session.enddate,days:req.session.days}) //change to payment
         }else{
             res.redirect('/login');
         }
@@ -207,7 +272,7 @@ function function3() {
     console.log('finally');
     console.log(req.session.username)
     if(req.session.loggedIn){
-        res.redirect('/userdashboard');
+        res.redirect('/userdashboard')
     }else{
         res.redirect('/login');
     }
@@ -223,8 +288,46 @@ function function3() {
 
 });
 
+routes.get("/pay_success", function(req, res){
+    count = {
+        
+        checkin : req.session.startdate,
+        checkout : req.session.enddate,
+        id : req.session.userid
+    }
+
+    console.log(count);
+    var sql = 'select roomno from roomtypeid=(?) and roomno not in ( select roomno from reservation where ( date_checkout > (?) ) and ( date_checkin < (?)))';
+    db.query(sql,req.session.startdate,req.session.enddate, function (err, data,fields) {
+      if (err) throw err;
+      data .forEach(function(v){ count.id=(parseInt(v.roomid)); });
+        max.push(temp)
+      
+    });
+    
+   
+   
+    function function2() {
+        // all the stuff you want to happen after that pause
+        console.log('finally');
+        console.log(count);
+        console.log(req.session.username)
+        
+        if(req.session.loggedIn){
+            console.log(req.session.total);
+            res.render('mock_pay.ejs',{total:req.session.total})
+        }else{
+            res.redirect('/login');
+        }
+      
+    }
+    
+    
+            setTimeout( function2, 2000);
+        
 
 
+});
 
 
 

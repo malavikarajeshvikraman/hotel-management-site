@@ -18,6 +18,17 @@ router.get("/admindashboard/users", function(req, res){
 
 
 });
+router.get("/admindashboard/contact", function(req, res){
+    var sql='SELECT * FROM contactus';
+    db.query(sql, function (err, data, fields) {
+        if(err) throw err;
+       
+        res.render("admin/contactus.ejs",{ userData : data  });
+        
+});
+
+
+});
 
 router.get("/admindashboard/rooms", function(req, res){
     var sql='SELECT * FROM room';

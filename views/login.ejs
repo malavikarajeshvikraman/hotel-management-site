@@ -46,7 +46,16 @@
     <%- include('partials/header.ejs') %>
     
   </header><!-- End #header -->
-
+  <script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+</script>
   <!-- ======= Hero Section ======= -->
       <div id="login" align="center">
         <h3 class="text-center text-white pt-5">Login form</h3>
@@ -62,8 +71,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="myInput" class="form-control">
                             </div>
+                            <div class="form-group">
+                              <p style =" font-size : 1.2rem;"><input type="checkbox" onclick="myFunction()"> Show password</p>
+                          </div>
                             <div class="form-group" style="margin-bottom: 0%;">
                         
                                 <input type="submit" name="submit" align="center" class="btn btn-info btn-md" value="submit">
@@ -77,7 +89,9 @@
                 </div>
             </div>
         </div>
-        <p><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
+        <p style = "   background-color: rgb(0,0,0,0.6);
+        width: 600px;
+        color: white;"> <b><%- (typeof alertMsg!='undefined')? alertMsg:''%></b></p>
     </div>
     <footer id ="footer" style="color:white;">
         <%- include('partials/footer') %>
