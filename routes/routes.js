@@ -9,6 +9,7 @@ routes.get("/payment", function(req, res){
     res.render("payment.ejs"); 
 });
 
+
 routes.get("/mockpay", function(req, res){
     res.render("mockpay.ejs"); 
 });
