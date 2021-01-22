@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head.ejs') %>
+
+<link rel="stylesheet" id="bootstrap-css"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+	<style>
+      .button {
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+		
+      }
+    </style>
+
+</head>
+<body >
+    <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+   
+    <%- include('partials/header.ejs') %>
+    
+  </header><!-- End #header -->
+ <!-- Page Heading -->
+  <h1 class="my-4" style = "font-family:arial;" align="center">Petrichor Services
+    
+  </h1>
+
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src="assets/img/restaurant.jpg" alt="restuarant"></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            Restuarant
+          </h4>
+          <p class="card-text">Food is for eating,and good food is to be enjoyed in good place. And our restaurant offers both. Tables can be pre-booked. The cusines we serve are <i>Indian, Italian, and Chinese.</i>
+		  <BR><BR><BR>
+		  <center><a href="/services2"class="btn btn-info btn-md">Menu</a></center>
+		  </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src="assets/img/image1.jpg" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            Outdoor Pool
+          </h4>
+          <p class="card-text">Enjoy you free time in the pool side.Automatic cleaners are installed to keep the water clean.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src="assets/img/hall.jpg" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            Halls
+          </h4>
+          <p class="card-text">Petrichor Resort is one of the best hosts in organising events. The arrangements and decoration of the halls will be done by the event mangagement team in Petrichor after discussion with the customer. Our management assures that both customers and their guests are happy with our services.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src="assets/img/gym.jpg" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            Fitness Center
+          </h4>
+          <p class="card-text">In Petrichor, we have fitness center which is open from 6:00 a.m to 11:00 p.m so that people who do daily workout don't need to miss their routine during their stay in our hotel. Stay fit, stay healthy !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <%- include('partials/footer') %>
+  </footer><!-- End #footer -->
+</body>
+</html>

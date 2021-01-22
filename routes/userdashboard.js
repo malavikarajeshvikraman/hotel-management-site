@@ -36,20 +36,22 @@ router.get('/userdashboard/details', function(req, res, next) {
 });
 
 router.get('/userdashboard/payments', function(req, res, next) {
-    var sql='SELECT id FROM registration WHERE username = (?)';
-    db.query(sql, [req.session.username ], function (err, data, fields) {
-         req.session.userid=data[0].id
-    });
-    function function2(){
+  
     var sql1='SELECT * FROM order_table where id = (?)';
-    db.query(sql1,[req.session.userid],function (err, data, fields) {
+    db.query(sql1, [req.session.userid], function (err, data, fields) {
         if(err) throw err;
-        console.log(req.session.userid);
-        res.render("upayments.ejs",{ userData : data  });
-        
-});}
+        var total =0;
+        data .forEach(function(v){ var sql1='SELECT distinct full_name FROM registration where id = (?) ';
+        db.query(sql1, [v.id],function (err, ans, fields) {
 
-setTimeout( function2, 2000);
+            if(err) throw err;
+            ans.forEach(function(u){v.id=u.full_name})
+        });
+        v.totalrooms=v.singler+v.doubler+v.tripler+v.studio+v.executive_s+v.presedential_s;
+    });   res.render("upayments.ejs",{ userData : data  });});
+  
+
+
     
 });
 
@@ -98,7 +100,7 @@ db.query(sql, [inputData.address,req.session.username] ,function (err, data1, fi
 router.post('/changemail', function(req, res, next) {
     
     inputData ={
-        email: req.body.phno
+        email: req.body.email
         
     }
     var sql='SELECT * FROM registration WHERE email_address = (?) ';

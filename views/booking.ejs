@@ -98,7 +98,7 @@
               <li><a href="#">Drop Down 5</a></li>
             </ul>
           </li> -->
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -111,7 +111,7 @@
   <section id="hero">
     <div class="hero-container">
       <div class="content">
-        <h1>Reserve your Rooms!</h1>
+        <h1>  Reserve  your  Rooms!</h1>
         <p><b>Hi </b> - <%= username %></p>
       </div>  
       
@@ -132,19 +132,19 @@
          
           <form method = "POST" action= "/bookingstatus">
         <div class="row">
-          <section id="section-title" class="date" style="margin-left: 20%;">        
+          <section id="section-title" class="date" style="    margin-left: 30%">        
               <!-- Date picker Starts-->
               <div class="datepicker" align="center">
                   <div><label for="start">Start date:</label>
                       <input type="date" id="start" name="trip_start"
-                      value="2018-07-22"
+                      value="2021-01-23"
                       min="2021-01-01" max="2021-12-31">
                   </div>            
 
 
                   <div><label for="end">End date:</label>
                       <input type="date" id="end" name="trip_end"
-                      value="2018-07-22"
+                      value="2021-01-23"
                       min="2021-01-01" max="2021-12-31">
                   </div>
 
@@ -152,7 +152,7 @@
 
               </div>
           <!-- Date picker Ends -->
-          <div><button>Check Availabilty</button></div>
+          <div><button class="btn btn-info btn-md">Check Availabilty</button></div>
           </section>
       </div>
       </form>
@@ -164,166 +164,166 @@
       <p>Please select your preferred rooms below</p>
     </div>
     <form method = "POST" action= "/payment">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="portfolio-item">
-                <img src="assets/img/rooms/single.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-          
-                  <h3><a href="assets/img/rooms/single.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Single</a></h3>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="portfolio-item">
+              <img src="assets/img/rooms/single.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+        
+                <h3><a href="assets/img/rooms/single.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Single</a></h3>
 
-                </div>
-              </div>           
-              <div class="incdec">
-                <span>Rs 1000</span>
-                <!-- <button onclick="decrement()">-</button> -->
-                <input id=demoInput1 name="d1" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[0]:0 %>"> 
-                <!-- <button onclick="increment()">+</button>                -->
-              </div>     
-              
-            </div>
+              </div>
+            </div>           
+            <div class="incdec">
+              <span><p><b>Rs.</b> <%= current_price[0] %></p></span>
+              <!-- <button onclick="decrement()">-</button> -->
+              <input id=demoInput1 name="d1" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[0]:0 %>"> 
+              <!-- <button onclick="increment()">+</button>                -->
+            </div>     
+            
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="portfolio-item">
-                <img src="assets/img/rooms/double.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h3><a href="assets/img/rooms/double.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Double</a></h3>
-
-                </div>
-              </div>              
-              <span>Rs 1200</span>
-              <div class="incdec">
-                <!-- <button onclick="decrement2()">-</button> -->
-                <input id=demoInput2 name="d2" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[1]:0 %>"> 
-                <!-- <button onclick="increment2()">+</button>                -->
-              </div>  
-              <!--<p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-              </p>
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>-->
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="portfolio-item">
-                <img src="assets/img/rooms/triple.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h3><a href="assets/img/rooms/triple.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Triple</a></h3>
-
-                </div>
-              </div>              
-              <span>Rs 1500</span>
-              <div class="incdec">
-                <!-- <button onclick="decrement3()">-</button> -->
-                <input id=demoInput3 name="d3" type=number min=0 max= "<%= (typeof maximum !='undefined')? maximum[2]:0 %>"> 
-                <!-- <button onclick="increment3()">+</button>                -->
-              </div>  
-              <!--<p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-              </p>
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>-->
-            </div>
-          </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="portfolio-item">
-                <img src="assets/img/rooms/studio.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h3><a href="assets/img/rooms/studio.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Studio</a></h3>
-
-                </div>
-              </div>              
-              <span>Rs 1750</span>
-              <div class="incdec">
-                <!-- <button onclick="decrement4()">-</button> -->
-                <input id=demoInput4 name="d4"type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[3]:0 %>"> 
-                <!-- <button onclick="increment4()">+</button>                -->
-              </div>  
-              <!--<p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-              </p>
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>-->
-            </div>
-          </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="portfolio-item">
-                <img src="assets/img/rooms/executive.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h3><a href="assets/img/rooms/executive.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Executive Suite</a></h3>
-
-                </div>
-              </div>              
-              <span>Rs 2500</span>
-              <div class="incdec">
-                <!-- <button onclick="decrement5()">-</button> -->
-                <input id=demoInput5 name="d5" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[4]:0 %>"> 
-                <!-- <button onclick="increment5()">+</button>                -->
-              </div>  
-              <!--<p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-              </p>
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>-->
-            </div>
-          </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="portfolio-item">
-                <img src="assets/img/rooms/presidential.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h3><a href="assets/img/rooms/presidential.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Presidential Suite</a></h3>
-
-                </div>
-              </div>              
-              <span>Rs 3000</span>
-              <div class="incdec">
-                <!-- <button onclick="decrement6()">-</button> -->
-                <input id=demoInput6 name="d6" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[5]:0 %>"> 
-                <!-- <button onclick="increment6()">+</button>                -->
-              </div>  
-              <!--<p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-              </p>
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>-->
-            </div>
-          </div>      
-
-        </div>       
-
-      </div>    
-      <section id="team" class="team">
-        <div class="container">
-  
-          <div class="section-title">        
-            <input align ="center" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
         </div>
-      </section>
-    </form>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="portfolio-item">
+              <img src="assets/img/rooms/double.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h3><a href="assets/img/rooms/double.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Double</a></h3>
+
+              </div>
+            </div>              
+            <span><p><b>Rs.</b> <%= current_price[1] %></p></span>
+            <div class="incdec">
+              <!-- <button onclick="decrement2()">-</button> -->
+              <input id=demoInput2 name="d2" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[1]:0 %>"> 
+              <!-- <button onclick="increment2()">+</button>                -->
+            </div>  
+            <!--<p>
+              Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+            </p>
+            <div class="social">
+              <a href=""><i class="icofont-twitter"></i></a>
+              <a href=""><i class="icofont-facebook"></i></a>
+              <a href=""><i class="icofont-instagram"></i></a>
+              <a href=""><i class="icofont-linkedin"></i></a>
+            </div>-->
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="portfolio-item">
+              <img src="assets/img/rooms/triple.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h3><a href="assets/img/rooms/triple.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Triple</a></h3>
+
+              </div>
+            </div>              
+            <span><p><b>Rs.</b> <%= current_price[2] %></p></span>
+            <div class="incdec">
+              <!-- <button onclick="decrement3()">-</button> -->
+              <input id=demoInput3 name="d3" type=number min=0 max= "<%= (typeof maximum !='undefined')? maximum[2]:0 %>"> 
+              <!-- <button onclick="increment3()">+</button>                -->
+            </div>  
+            <!--<p>
+              Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+            </p>
+            <div class="social">
+              <a href=""><i class="icofont-twitter"></i></a>
+              <a href=""><i class="icofont-facebook"></i></a>
+              <a href=""><i class="icofont-instagram"></i></a>
+              <a href=""><i class="icofont-linkedin"></i></a>
+            </div>-->
+          </div>
+        </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="portfolio-item">
+              <img src="assets/img/rooms/studio.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h3><a href="assets/img/rooms/studio.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Studio</a></h3>
+
+              </div>
+            </div>              
+            <span><p><b>Rs.</b> <%= current_price[3] %></p></span>
+            <div class="incdec">
+              <!-- <button onclick="decrement4()">-</button> -->
+              <input id=demoInput4 name="d4"type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[3]:0 %>"> 
+              <!-- <button onclick="increment4()">+</button>                -->
+            </div>  
+            <!--<p>
+              Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+            </p>
+            <div class="social">
+              <a href=""><i class="icofont-twitter"></i></a>
+              <a href=""><i class="icofont-facebook"></i></a>
+              <a href=""><i class="icofont-instagram"></i></a>
+              <a href=""><i class="icofont-linkedin"></i></a>
+            </div>-->
+          </div>
+        </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="portfolio-item">
+              <img src="assets/img/rooms/executive.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h3><a href="assets/img/rooms/executive.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Executive Suite</a></h3>
+
+              </div>
+            </div>              
+            <span><p><b>Rs.</b> <%= current_price[4] %></p></span>
+            <div class="incdec">
+              <!-- <button onclick="decrement5()">-</button> -->
+              <input id=demoInput5 name="d5" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[4]:0 %>"> 
+              <!-- <button onclick="increment5()">+</button>                -->
+            </div>  
+            <!--<p>
+              Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+            </p>
+            <div class="social">
+              <a href=""><i class="icofont-twitter"></i></a>
+              <a href=""><i class="icofont-facebook"></i></a>
+              <a href=""><i class="icofont-instagram"></i></a>
+              <a href=""><i class="icofont-linkedin"></i></a>
+            </div>-->
+          </div>
+        </div><div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="portfolio-item">
+              <img src="assets/img/rooms/presidential.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h3><a href="assets/img/rooms/presidential.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1">Presidential Suite</a></h3>
+
+              </div>
+            </div>              
+            <span><p><b>Rs.</b> <%= current_price[5] %></p></span>
+            <div class="incdec">
+              <!-- <button onclick="decrement6()">-</button> -->
+              <input id=demoInput6 name="d6" type=number min=0 max="<%= (typeof maximum !='undefined')? maximum[5]:0 %>"> 
+              <!-- <button onclick="increment6()">+</button>                -->
+            </div>  
+            <!--<p>
+              Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+            </p>
+            <div class="social">
+              <a href=""><i class="icofont-twitter"></i></a>
+              <a href=""><i class="icofont-facebook"></i></a>
+              <a href=""><i class="icofont-instagram"></i></a>
+              <a href=""><i class="icofont-linkedin"></i></a>
+            </div>-->
+          </div>
+        </div>      
+
+      </div>       
+
+    </div>    
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">        
+          <input align ="center" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+      </div>
+    </section>
+  </form>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

@@ -2,14 +2,383 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
+
+<style>
+    .btn-get-started scrollto {
+        
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px 10px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    border: 1px solid #fff;
+    color: #fff;
+    }
+    .section-title1{
+        color: white !important;
+        
+      }
+
+      
+    .cont {
+        
+        position: relative;
+    }
+        
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 44.5%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
 
     <header id="header" class="fixed-top">
      
-      <%- include('partials/header.ejs') %>
+        <div class="container">
+            <div class="logo float-left">
+              <h1 class="text-light"><a href="/homepage"><span>Petrichor </span></a></h1>
+              <!-- Uncomment below if you prefer to use an image logo -->
+              <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
       
     </header>
+
+    <main id="main">
+
+        <!-- RECEIPT -->
+
+        <div class="container">
+            <br>
+            
+        
+            <script>
+                n =  new Date();
+                y = n.getFullYear();
+                m = n.getMonth() + 1;
+                d = n.getDate();
+                document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+            </script>
+        
+            <section id="services" class="services section-bg">
+            <div class="row">
+                <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <p><b>Petrichor Resort</b></p>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <p> <em>Date:</em>
+                                <script> document.write(new Date().toLocaleDateString()); </script>
+                            </p>
+                            
+                            <p>
+                                <em>Receipt No: 34522677W</em>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <h1>Price Details</h1>
+                        </div>
+                        </span>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Room</th>
+                                    <th>Quantity</th>
+                                    <th class="text-center">Price (Rs)</th>
+                                    <th class="text-center">Total (Rs)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (var i =0; i < quantity_no;  i++ ) { %>
+                                    <%if (price_e[i]!=NaN && price_t[i]!=NaN) { %>
+                                      <tr>
+                                        <td class="col-md-9"><em><%= roomt[i] %></em></h4></td>
+                                        <td class="col-md-1" style="text-align: center"> <%= roomn[i] %> </td>
+                                        <td class="col-md-1 text-center"><%= (typeof price_e[i] !='undefined')? price_e[i]:0 %></td>
+                                        <td class="col-md-1 text-center"><%= (typeof price_t[i] !='undefined')? price_t[i]:0 %></td>
+                                      </tr> 
+                                      <% } %>
+                                    <% } %>
+                                
+                                <!-- <tr>
+                                    <td class="col-md-9"><em>Lebanese Cabbage Salad</em></h4></td>
+                                    <td class="col-md-1" style="text-align: center"> 1 </td>
+                                    <td class="col-md-1 text-center">$8</td>
+                                    <td class="col-md-1 text-center">$8</td>
+                                </tr> -->
+                              
+                              </tbody>
+                              <tbody>
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                   <th style="width: 20%;"></th>
+                                </tr>
+                                <tr>
+                                  <td class="col-md-9"><em>Checkin</em></h4></td>
+                                  <td>   </td>
+                                    <td style="text-align: center"><%= checkin %></td>
+                               </tr>
+                                    <tr>
+                                    <td class="col-md-9"><em>Checkout</em></h4></td>
+                                    <td>   </td>
+                             
+                                    <td  style="text-align: center"><%= checkout %></td>
+                                </tr>
+                                <tr>
+                                  <td class="col-md-9"><em>Total Days</em></h4></td>
+                                  <td>   </td>
+                                   
+                                  <td class="col-md-1" style="text-align: center"><%= days %></td>
+                                </tr>
+                                <tr>
+                                    
+                                   <td></td>
+                                    <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                                    <td class="text-center text-danger"><h4><strong><%= (typeof total !='undefined')? total:0 %></strong></h4></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <label style="opacity:0;">Amount    :</label><p style="opacity:0;"  id="orderamt" ><%= (typeof total !='undefined')? total:0 %></p>
+                        <button value="<%= (typeof total !='undefined')? total:0 %>" type="button" class="btn btn-success btn-lg btn-block" id="order-button">
+                            Pay to proceed   
+                        </button>
+                        <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+                        <script>
+                            document.getElementById('order-button').onclick = function(e){
+                            var url = '/api/payment/order';
+                                var params = {
+                                    amount: parseInt(document.getElementById('order-button').value)*100,  
+                                    currency: "INR",
+                                    receipt: "su001",
+                                    payment_capture: '1'
+                                };
+            
+                            var xmlHttp = new XMLHttpRequest();
+                            xmlHttp.onreadystatechange = function (res) {
+                                if (xmlHttp.readyState === 4) {
+                                res=JSON.parse(xmlHttp.responseText);
+                                document.getElementById('rzp-text').value=res.sub.id;
+                                }
+                            }
+                            xmlHttp.open("POST", url, true); // false for synchronous request
+                            xmlHttp.setRequestHeader("Content-type", "application/json");
+                            xmlHttp.send(JSON.stringify(params));
+                            }
+                        </script>
+                
+                        <label style="opacity:0;">Order id   :</label><input style="opacity:0;" type=text id=rzp-text /><br/>
+                        <button type="button" class="btn btn-success btn-lg btn-block" style="width:100%;" id="rzp-button1">
+                            Checkout  
+                        </button>
+                        
+                        <script>
+                            document.querySelector('#rzp-button1').style.display = 'none'; 
+                            document.querySelector('#order-button').addEventListener('click', showBtn); 
+                            
+                            function showBtn(e) { 
+                            document.querySelector('#rzp-button1').style.display = 'block'; 
+                            e.preventDefault(); 
+                            }
+                        </script>
+                        
+
+                        <div id=paymentDetails></div>
+                        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                        <script>
+                        document.getElementById('rzp-button1').onclick = function(e){
+                            var options = {
+                            "key": "rzp_test_u7Pw0KKUBrwYsc",  //Enter your razorpay key
+                            "currency": "INR",
+                            "name": "Petrichor Resort",
+                            "description": "Room-Booking payment",
+                            "image": "assets/img/apple-touch-icon.jpg",
+                            "order_id": document.getElementById('rzp-text').value,
+                            "handler": function (response){
+                                document.getElementById('order-pay-id').value=response.razorpay_payment_id;
+                        document.getElementById('order-id').value=response.razorpay_order_id;
+                        document.getElementById('order-sig').value=response.razorpay_signature;
+                            },
+                            "theme": {
+                                "color": "#227254"
+                            }
+                        };
+                            var rzp1 = new Razorpay(options);
+                            rzp1.open();
+                            e.preventDefault();
+                        }
+                        </script>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+            <form method="POST" action="/bookedroom">
+        <label style = "opacity: 0;">Order id    :</label><input style = "opacity: 0;" type=text id=order-id name="orderid"/>
+        <label style = "opacity: 0;" >payment id  :</label><input style = "opacity: 0;"  type=text id=order-pay-id name="payid"/>
+        <label style = "opacity: 0;">Signature   :</label><input  style = "opacity: 0;" type=text id=order-sig />
+        <br/>
+            <div class="cont">
+                <div class="vertical-center">
+                    <button id="verify-button1" class="btn btn-success btn-lg btn-block" style="width:200%; background-color:#5bc0de;">Confirm</button>
+                </div>
+              </div>
+        </form>
+
+        <!-- For checkout to verify -->
+        <script>
+            document.querySelector('#verify-button1').style.display = 'none'; 
+            document.querySelector('#rzp-button1').addEventListener('click', showBtn); 
+            
+            function showBtn(e) { 
+            document.querySelector('#verify-button1').style.display = 'block'; 
+            e.preventDefault(); 
+            }
+        </script>
+        <br>
+        <br>
+        <!-- <a href="/pay_success" class="btn-get-started scrollto">Submit</a> -->
+        <div class="section-title">        
+          <a href="/pay_success" class="btn-get-started scrollto"><button class="btn btn-info btn-md">Go to homepage</button> </a> 
+        </div>
+
+        <script>
+        document.getElementById('verify-button1').onclick = function(e){
+        var url = '/api/payment/verify';
+            var params = {
+        razorpay_order_id:  document.getElementById('order-id').value,  
+        razorpay_payment_id:  document.getElementById('order-pay-id').value,
+        razorpay_signature:  document.getElementById('order-sig').value
+        };
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function (res) {
+            if (xmlHttp.readyState === 4) {
+        alert(xmlHttp.responseText);
+            }
+        }
+        xmlHttp.open("POST", url, true); // false for synchronous request
+        xmlHttp.setRequestHeader("Content-type", "application/json");
+        xmlHttp.send(JSON.stringify(params));
+        }
+        </script>
+            </section>
+            </div>
+
+        <!-- RECEIPT ENDS -->
+
+        <!-- <section id="services" class="services section-bg">
+            <div class="container"> -->
+
+                
+                <!-- <label>Amount    :</label><h1  id="orderamt" ><%= (typeof total !='undefined')? total:0 %></h1><br/> -->
+                <!-- <button value="<%= (typeof total !='undefined')? total:0 %>" id="order-button">Pay</button> <br/> -->
+
+                <!-- <script>
+                document.getElementById('order-button').onclick = function(e){
+                var url = '/api/payment/order';
+                    var params = {
+                        amount: parseInt(document.getElementById('order-button').value)*100,  
+                        currency: "INR",
+                        receipt: "su001",
+                        payment_capture: '1'
+                    };
+
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function (res) {
+                    if (xmlHttp.readyState === 4) {
+                    res=JSON.parse(xmlHttp.responseText);
+                    document.getElementById('rzp-text').value=res.sub.id;
+                    }
+                }
+                xmlHttp.open("POST", url, true); // false for synchronous request
+                xmlHttp.setRequestHeader("Content-type", "application/json");
+                xmlHttp.send(JSON.stringify(params));
+                }
+                </script> -->
+    
+    
+        <!-- <hr/> -->
+        <!-- <label style = "opacity: 0;">Order id   :</label><input style = "opacity: 0;" type=text id=rzp-text /><br/> -->
+        <!-- <button id="rzp-button1">CHeckout</button> -->
+        
+        <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+        document.getElementById('rzp-button1').onclick = function(e){
+            var options = {
+            "key": "rzp_test_u7Pw0KKUBrwYsc",  //Enter your razorpay key
+            "currency": "INR",
+            "name": "Petrichor Resort",
+            "description": "Room-Booking payment",
+            "image": "assets/img/apple-touch-icon.jpg",
+            "order_id": document.getElementById('rzp-text').value,
+            "handler": function (response){
+                document.getElementById('order-pay-id').value=response.razorpay_payment_id;
+        document.getElementById('order-id').value=response.razorpay_order_id;
+        document.getElementById('order-sig').value=response.razorpay_signature;
+            },
+            "theme": {
+                "color": "#227254"
+            }
+        };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+        </script> -->
+    <!-- heeeee origin -->
+        <!-- <hr/>
+        <form method="POST" action="/bookedroom">
+        <label style = "opacity: 0;">Order id    :</label><input style = "opacity: 0;" type=text id=order-id name="orderid"/>
+        <label style = "opacity: 0;" >payment id  :</label><input style = "opacity: 0;"  type=text id=order-pay-id name="payid"/>
+        <label style = "opacity: 0;">Signature   :</label><input  style = "opacity: 0;" type=text id=order-sig />
+        <br/>
+        <label>Verify Signature</label><button id="verify-button1">Verify</button>
+        </form>
+        <br>
+        <a href="/pay_success" class="btn-get-started scrollto">Submit</a>
+
+        <script>
+        document.getElementById('verify-button1').onclick = function(e){
+        var url = '/api/payment/verify';
+            var params = {
+        razorpay_order_id:  document.getElementById('order-id').value,  
+        razorpay_payment_id:  document.getElementById('order-pay-id').value,
+        razorpay_signature:  document.getElementById('order-sig').value
+        };
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function (res) {
+            if (xmlHttp.readyState === 4) {
+        alert(xmlHttp.responseText);
+            }
+        }
+        xmlHttp.open("POST", url, true); // false for synchronous request
+        xmlHttp.setRequestHeader("Content-type", "application/json");
+        xmlHttp.send(JSON.stringify(params));
+        }
+        </script>
+
+            </div>
+        </section> -->
+
+        
+
+    </main>
 </body>
 </html>

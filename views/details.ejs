@@ -15,6 +15,15 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <style>
+            body {
+                margin-bottom:50px;
+            }
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+              }
             #login .container1 #login-row #login-column #login-box {
                 margin-top: 120px;
                 max-width: 600px;
@@ -185,47 +194,11 @@
         <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
         <header id="header" class="fixed-top">
    
-            <div class="container">
-                <div class="logo float-left">
-                  <h1 class="text-light"><a href="index.html"><span>Petrichor </span></a></h1>
-                  <!-- Uncomment below if you prefer to use an image logo -->
-                  <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-                </div>
-              
-                <nav class="nav-menu float-right d-none d-lg-block">
-                  <ul>
-                    <li class="active"><a href="#header">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li class="drop-down"><a href="">Drop Down</a>
-                      <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li class="drop-down"><a href="#">Drop Down 2</a>
-                          <ul>
-                            <li><a href="#">Deep Drop Down 1</a></li>
-                            <li><a href="#">Deep Drop Down 2</a></li>
-                            <li><a href="#">Deep Drop Down 3</a></li>
-                            <li><a href="#">Deep Drop Down 4</a></li>
-                            <li><a href="#">Deep Drop Down 5</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
-                        <li><a href="#">Drop Down 5</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                  </ul>
-                </nav><!-- .nav-menu -->
-              
-              </div>
-            
+            <%- include('partials/uheader.ejs') %>
           </header><!-- End #header -->
           <!-- ======= Hero Section ======= -->
 
-  <section id="hero">
+  <section id="hero" style="    margin-bottom: 0%;">
     <div class="hero-container">  
       <div class="content">
         <div class="container">
@@ -248,7 +221,7 @@
                                         
                                     </div>
                                     <div style="margin-left: 75%;">
-                                        <button style = "font-size: 1.85rem; " data-toggle="modal" data-target="#exampleModalCenter3" >Change Password</button>
+                                        <button class="btn btn-info btn-md" style = "font-size: 1.85rem; " data-toggle="modal" data-target="#exampleModalCenter3" >Change Password</button>
                                         
                                     </div>
                                 </div>
@@ -281,7 +254,7 @@
                                                     <%= data.phno %>
                                                 </div>
                                                 <div>
-                                                    <button  data-toggle="modal" data-target="#exampleModalCenter" > Edit </button>
+                                                    <button class="btn btn-info btn-md"  style = "font-size: 1.5rem; "data-toggle="modal" data-target="#exampleModalCenter" > Edit </button>
                                                     
                                                 </div>
                                             </div>
@@ -295,7 +268,7 @@
                                                     <%= data.email_address %>
                                                 </div>
                                                 <div>
-                                                    <button  data-toggle="modal" data-target="#exampleModalCenter2" > Edit </button>
+                                                    <button class="btn btn-info btn-md" style = "font-size: 1.5rem; " data-toggle="modal" data-target="#exampleModalCenter2" > Edit </button>
                                                     
                                                 </div>
                                             </div>
@@ -308,7 +281,7 @@
                                                     <%= data.address %>
                                                 </div>
                                                 <div>
-                                                    <button  data-toggle="modal" data-target="#exampleModalCenter1" > Edit </button>
+                                                    <button class="btn btn-info btn-md" style = "font-size: 1.5rem; " data-toggle="modal" data-target="#exampleModalCenter1" > Edit </button>
                                                     
                                                 </div>
                                             </div>
