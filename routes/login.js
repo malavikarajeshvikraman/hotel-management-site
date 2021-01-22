@@ -16,7 +16,7 @@ router.post('/login', function(req, res,next){
             req.session.loggedIn= true;
             req.session.username= username;
             console.log('Got in');
-            res.redirect('/booking');
+            res.redirect('/userdashboard');
         }
         else{
             res.render('login.ejs',{alertMsg:"Your Email Address or password is wrong"});

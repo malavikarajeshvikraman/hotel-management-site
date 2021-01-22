@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head.ejs') %>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <style>
+            #login .container1 #login-row #login-column #login-box {
+                margin-top: 120px;
+                max-width: 600px;
+                height: 320px;
+                border: 1px solid #9C9C9C;
+                background-color: #EAEAEA;
+              }
+              #login .container1 #login-row #login-column #login-box #login-form {
+                padding: 20px;
+              }
+              #login .container1 #login-row #login-column #login-box #login-form #register-link {
+                margin-top: -85px;
+              }
+              .form-group {
+                  text-align: left;
+              }.modal-confirm {		
+                color: #636363;
+                width: 400px;
+            }
+            body { padding-right: 0 !important }
+            .dbox {
+                position: relative;
+                background: rgb(255, 86, 65);
+                background: -moz-linear-gradient(top, rgba(255, 86, 65, 1) 0%, rgba(253, 50, 97, 1) 100%);
+                background: -webkit-linear-gradient(top, rgba(255, 86, 65, 1) 0%, rgba(253, 50, 97, 1) 100%);
+                background: linear-gradient(to bottom, rgba(255, 86, 65, 1) 0%, rgba(253, 50, 97, 1) 100%);
+                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ff5641', endColorstr='#fd3261', GradientType=0);
+                border-radius: 4px;
+                text-align: center;
+                margin: 60px 0 50px;
+            }
+            .dbox__icon {
+                position: absolute;
+                transform: translateY(-50%) translateX(-50%);
+                left: 50%;
+            }
+            .dbox__icon:before {
+                width: 75px;
+                height: 75px;
+                position: absolute;
+                background: #fda299;
+                background: rgba(253, 162, 153, 0.34);
+                content: '';
+                border-radius: 50%;
+                left: -17px;
+                top: -17px;
+                z-index: -2;
+            }
+            .dbox__icon:after {
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                background: #f79489;
+                background: rgba(247, 148, 137, 0.91);
+                content: '';
+                border-radius: 50%;
+                left: -10px;
+                top: -10px;
+                z-index: -1;
+            }
+            .dbox__icon > i {
+                background: #ff5444;
+                border-radius: 50%;
+                line-height: 40px;
+                color: #FFF;
+                width: 40px;
+                height: 40px;
+                font-size:22px;
+            }
+            .dbox__body {
+                padding: 50px 20px;
+            }
+            .dbox__count {
+                display: block;
+                font-size: 30px;
+                color: #FFF;
+                font-weight: 300;
+            }
+            .dbox__title {
+                font-size: 13px;
+                color: #FFF;
+                color: rgba(255, 255, 255, 0.81);
+            }
+            .dbox__action {
+                transform: translateY(-50%) translateX(-50%);
+                position: absolute;
+                left: 50%;
+            }
+            .dbox__action__btn {
+                border: none;
+                background: #FFF;
+                border-radius: 19px;
+                padding: 7px 16px;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 11px;
+                letter-spacing: .5px;
+                color: #003e85;
+                box-shadow: 0 3px 5px #d4d4d4;
+            }
+            
+            
+            .dbox--color-2 {
+                background: rgb(252, 190, 27);
+                background: -moz-linear-gradient(top, rgba(252, 190, 27, 1) 1%, rgba(248, 86, 72, 1) 99%);
+                background: -webkit-linear-gradient(top, rgba(252, 190, 27, 1) 1%, rgba(248, 86, 72, 1) 99%);
+                background: linear-gradient(to bottom, rgba(252, 190, 27, 1) 1%, rgba(248, 86, 72, 1) 99%);
+                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fcbe1b', endColorstr='#f85648', GradientType=0);
+            }
+            .dbox--color-2 .dbox__icon:after {
+                background: #fee036;
+                background: rgba(254, 224, 54, 0.81);
+            }
+            .dbox--color-2 .dbox__icon:before {
+                background: #fee036;
+                background: rgba(254, 224, 54, 0.64);
+            }
+            .dbox--color-2 .dbox__icon > i {
+                background: #fb9f28;
+            }
+            
+            .dbox--color-3 {
+                background: rgb(183,71,247);
+                background: -moz-linear-gradient(top, rgba(183,71,247,1) 0%, rgba(108,83,220,1) 100%);
+                background: -webkit-linear-gradient(top, rgba(183,71,247,1) 0%,rgba(108,83,220,1) 100%);
+                background: linear-gradient(to bottom, rgba(183,71,247,1) 0%,rgba(108,83,220,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b747f7', endColorstr='#6c53dc',GradientType=0 );
+            }
+            .dbox--color-3 .dbox__icon:after {
+                background: #b446f5;
+                background: rgba(180, 70, 245, 0.76);
+            }
+            .dbox--color-3 .dbox__icon:before {
+                background: #e284ff;
+                background: rgba(226, 132, 255, 0.66);
+            }
+            .dbox--color-3 .dbox__icon > i {
+                background: #8150e4;
+            }
+            #hero .content {
+                position: absolute;
+                bottom: 20;
+                background: rgb(0, 0, 0); /* Fallback color */
+                background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+                color: #f1f1f1;
+                width: 100%;
+                padding: 20px;
+              }
+              body {
+                background: linear-gradient(rgba(1, 41, 42, 0.5), rgba(7, 56, 57, 0.5)), url(assets/img/call-to-action-bg.jpg) fixed center center;
+            }
+            
+    
+              
+        </style>
+    </head>
+    <body>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                  x.type = "text";
+                } else {
+                  x.type = "password";
+                }
+              }
+        </script>
+        <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
+        <header id="header" class="fixed-top">
+   
+            <div class="container">
+                <div class="logo float-left">
+                  <h1 class="text-light"><a href="index.html"><span>Petrichor </span></a></h1>
+                  <!-- Uncomment below if you prefer to use an image logo -->
+                  <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                </div>
+              
+                <nav class="nav-menu float-right d-none d-lg-block">
+                  <ul>
+                    <li class="active"><a href="#header">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li class="drop-down"><a href="">Drop Down</a>
+                      <ul>
+                        <li><a href="#">Drop Down 1</a></li>
+                        <li class="drop-down"><a href="#">Drop Down 2</a>
+                          <ul>
+                            <li><a href="#">Deep Drop Down 1</a></li>
+                            <li><a href="#">Deep Drop Down 2</a></li>
+                            <li><a href="#">Deep Drop Down 3</a></li>
+                            <li><a href="#">Deep Drop Down 4</a></li>
+                            <li><a href="#">Deep Drop Down 5</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#">Drop Down 3</a></li>
+                        <li><a href="#">Drop Down 4</a></li>
+                        <li><a href="#">Drop Down 5</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+                </nav><!-- .nav-menu -->
+              
+              </div>
+            
+          </header><!-- End #header -->
+          <!-- ======= Hero Section ======= -->
+
+  <section id="hero">
+    <div class="hero-container">  
+      <div class="content">
+        <div class="container">
+           
+            <div class="col-sm-12 col-md-12 well" id="content"  style="    margin-left: 16%;
+            width: 67.5%; background-color: #f5f5f500;
+            border: 0;" >
+            <h3 style="text-align: center;  color:white;     font-size: 1.9rem; "><strong><%- (typeof alertMsg!='undefined')? alertMsg:''%></strong> </h3>
+        </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+        
+                        <div class="card-body">
+                            <div class="card-title mb-4">
+                                <div class="d-flex justify-content-start">
+                                   
+                                    <div class="userData ml-3">
+                                        <h2  style="font-size: 3rem; font-weight: bold; color:red; margin-bottom:0%;"><%= username %></h2>
+                                        
+                                    </div>
+                                    <div style="margin-left: 75%;">
+                                        <button style = "font-size: 1.85rem; " data-toggle="modal" data-target="#exampleModalCenter3" >Change Password</button>
+                                        
+                                    </div>
+                                </div>
+                               
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-12" style = "    color: black; font-size: 1.5rem;">
+                                    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                            <a class="nav-link active" id="basicInfo-tab"><b>Details</b></a>
+                                    </ul>
+                                    <div class="tab-content ml-1" id="myTabContent">
+                                        <div >
+                                            
+        
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Full Name</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <%= data.full_name %>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;"> Phone Number  </label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <%= data.phno %>
+                                                </div>
+                                                <div>
+                                                    <button  data-toggle="modal" data-target="#exampleModalCenter" > Edit </button>
+                                                    
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Email Address </label>
+                                                </div>
+    
+                                                <div class="col-md-8 col-6">
+                                                    <%= data.email_address %>
+                                                </div>
+                                                <div>
+                                                    <button  data-toggle="modal" data-target="#exampleModalCenter2" > Edit </button>
+                                                    
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Address </label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <%= data.address %>
+                                                </div>
+                                                <div>
+                                                    <button  data-toggle="modal" data-target="#exampleModalCenter1" > Edit </button>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            <hr />
+        
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>  
+      
+    </div>
+  </section><!-- #hero -->
+ 
+ <div>
+    <div class="modal fade" id="exampleModalCenter" style ="padding-right: 0;" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"  style = " margin: -200px;" role="document">
+          <div class="modal-content">
+            <div class="modal-header"style="    background-color: rgb(9, 117 ,105);">
+              <h5 class="modal-title" id="exampleModalCenterTitle" style = "font-size: x-large;margin-left: 24%; color:whitesmoke;"><b>Edit Phone number</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container1" align="center" >
+                    <div id="login-row" class="row justify-content-center align-items-center" style ="    width: 75%;">
+                        <div id="login-column" class="col-md-12" style ="    font-size: 2rem;">
+                            <div id="login-box" style="height: auto;"  class="col-md" >
+                                <form id="login-form" class="form" action="/changephno" method="post" enctype='application/x-www-form-urlencoded'>
+                                   
+                                
+                                  
+                                    <div class="form-group">
+                                        <label  class="text-info" style="    margin-left: 5%;">Enter the new number:</label><br>
+                                        <input type="tel" style="font-size: 1.5rem;" name="phno" class="form-control">
+                                    </div>
+                                
+                                    <div class="form-group1" >
+                                        <input align ="center" style="font-size: 1.5rem;margin-right: 4%;" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter1" style ="padding-right: 0;" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"  style = " margin: -200px;" role="document">
+          <div class="modal-content">
+            <div class="modal-header"style="    background-color: rgb(9, 117 ,105);">
+              <h5 class="modal-title" id="exampleModalCenterTitle" style = "font-size: x-large;margin-left: 30%; color:whitesmoke;"><b>Edit Address</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container1" align="center" >
+                    <div id="login-row" class="row justify-content-center align-items-center" style ="    width: 75%;">
+                        <div id="login-column" class="col-md-12" style ="    font-size: 2rem;">
+                            <div id="login-box" style="height: auto;"  class="col-md" >
+                                <form id="login-form" class="form" action="/changeadd" method="post" enctype='application/x-www-form-urlencoded'>
+                                   
+                                
+                                  
+                                    <div class="form-group">
+                                        <label  class="text-info" style="    margin-left: 5%;">Enter the new address:</label><br>
+                                        <input type="text" style="font-size: 1.5rem;" name="address" class="form-control">
+                                    </div>
+                                
+                                    <div class="form-group1" >
+                                        <input align ="center" style="font-size: 1.5rem;margin-right: 4%;" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter2" style ="padding-right: 0;" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"  style = " margin: -200px;" role="document">
+          <div class="modal-content">
+            <div class="modal-header"style="    background-color: rgb(9, 117 ,105);">
+              <h5 class="modal-title" id="exampleModalCenterTitle" style = "font-size: x-large;margin-left: 34%; color:whitesmoke;"><b>Edit Email</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container1" align="center" >
+                    <div id="login-row" class="row justify-content-center align-items-center" style ="    width: 75%;">
+                        <div id="login-column" class="col-md-12" style ="    font-size: 2rem;">
+                            <div id="login-box" style="height: auto;"  class="col-md" >
+                                <form id="login-form" class="form" action="/changemail" method="post" enctype='application/x-www-form-urlencoded'>
+                                   
+                                
+                                  
+                                    <div class="form-group">
+                                        <label  class="text-info" style="    margin-left: 5%;">Enter the new email:</label><br>
+                                        <input type="email" style="font-size: 1.5rem;" name="email" class="form-control">
+                                    </div>
+                                
+                                    <div class="form-group1" >
+                                        <input align ="center" style="font-size: 1.5rem;margin-right: 4%;" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter3" style ="padding-right: 0;" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"  style = " margin: -200px;" role="document">
+          <div class="modal-content">
+            <div class="modal-header"style="    background-color: rgb(9, 117 ,105);">
+              <h5 class="modal-title" id="exampleModalCenterTitle" style = "font-size: x-large;margin-left: 34%; color:whitesmoke;"><b>Change Password</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container1" align="center" >
+                    <div id="login-row" class="row justify-content-center align-items-center" style ="    width: 75%;">
+                        <div id="login-column" class="col-md-12" style ="    font-size: 2rem;">
+                            <div id="login-box" style="height: auto;"  class="col-md" >
+                                <form id="login-form" class="form" action="/changepass" method="post" enctype='application/x-www-form-urlencoded'>
+                                   
+                                
+                                    <div class="form-group">
+                                        <label  class="text-info" style="    margin-left: 5%;">Enter the old password:</label><br>
+                                        <input type="text" style="font-size: 1.5rem;" name="oldpass" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="text-info" style="    margin-left: 5%;">Enter the new password:</label><br>
+                                        <input type="password" id="myInput" style="font-size: 1.5rem;" name="password" class="form-control">
+                                
+                                    </div>
+                                    <div class="form-group">
+                                        <p style =" font-size : 1.2rem;"><input type="checkbox" onclick="myFunction()"> Show new password</p>
+                                    </div>
+                                    <div class="form-group1" >
+                                        <input align ="center" style="font-size: 1.5rem;margin-right: 4%;" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+        <footer id="footer">
+            <%- include('partials/footer') %>
+          </footer><!-- End #footer -->
+        </div>
+    </body>
+</html>

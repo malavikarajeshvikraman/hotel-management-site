@@ -13,15 +13,17 @@ router.post('/register', function(req, res, next) {
         email_address: req.body.email,
         username : req.body.username,
         password: req.body.password,
+        address:req.body.address,
+        phno:parseInt(req.body.Phno)
         
     }
     const confirm_password = req.body.confirm_password;
-var sql='SELECT * FROM registration WHERE email_address = (?)';
-db.query(sql, [inputData.email_address] ,function (err, data, fields) {
+var sql='SELECT * FROM registration WHERE email_address = (?) or username = (?)';
+db.query(sql, [inputData.email_address,inputData.username] ,function (err, data, fields) {
  if(err) throw err
  if(data.length>=1){
     console.log('That looks fine');
-     var msg = inputData.email_address+ " is already used for an account";
+     var msg = inputData.email_address+ " or "+inputData.username+ " is already used for an account";
  }else if(confirm_password != inputData.password){
     var msg ="Password & Confirm Password is not Matched";
  }else{

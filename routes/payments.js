@@ -195,7 +195,7 @@ function function3() {
     console.log('finally');
     console.log(req.session.username)
     if(req.session.loggedIn){
-        res.render('booking.ejs',{username:req.session.username,maximum:max})
+        res.redirect('/userdashboard');
     }else{
         res.redirect('/login');
     }
@@ -211,93 +211,9 @@ function function3() {
 
 });
 
-routes.get("/pay_success", function(req, res){
-    count = {
-        
-        checkin : req.session.startdate,
-        checkout : req.session.enddate,
-        id : req.session.userid
-    }
-
-    console.log(count);
-    var sql = 'select roomno from roomtypeid=(?) and roomno not in ( select roomno from reservation where ( date_checkout > (?) ) and ( date_checkin < (?)))';
-    db.query(sql,req.session.startdate,req.session.enddate, function (err, data,fields) {
-      if (err) throw err;
-      data .forEach(function(v){ count.id=(parseInt(v.roomid)); });
-        max.push(temp)
-      
-    });
-    
-   
-   
-    function function2() {
-        // all the stuff you want to happen after that pause
-        console.log('finally');
-        console.log(count);
-        console.log(req.session.username)
-        
-        if(req.session.loggedIn){
-            console.log(req.session.total);
-            res.render('payment.ejs',{total:req.session.total})
-        }else{
-            res.redirect('/login');
-        }
-      
-    }
-    
-    
-            setTimeout( function2, 2000);
-        
 
 
-});
 
-// ------------------------------
-
-routes.post("/success", function(req, res , next ){
-    count = {
-
-        d1 : ( req.body.d1  != NaN)?  parseInt(req.body.d1):0,
-        d2 : ( req.body.d2 != NaN)?  parseInt(req.body.d2):0,
-        d3 : (  req.body.d3  != NaN)?  parseInt(req.body.d3):0,
-        d4 : ( req.body.d4  != NaN )?  parseInt(req.body.d4):0,
-        d5 : ( req.body.d5 != NaN)?  parseInt(req.body.d5):0,
-        d6 : (req.body.d5  != NaN)?  parseInt(req.body.d6):0,
-    }
-    console.log(count);
-    var max= []
-    for (i=1;i<=6;i++){
-        var sql='select current_price from  room_types where roomtypeid = (?) ;';
-        db.query(sql, [i], function (err, data, fields) {
-            if(err) throw err
-            data .forEach(function(v){ max.push(parseInt(v.current_price)); })
-        });
-    }
-    
-   
-    function function2() {
-        // all the stuff you want to happen after that pause
-        console.log('finally');
-        console.log(max);
-        console.log(req.session.username)
-        
-        
-        if(req.session.loggedIn){
-            max= max.map(value => isNaN(value) ? 0 : value);
-            req.session.total = max[0]+max[1]+max[2]+max[3]+max[4]+max[5];
-            
-            console.log(req.session.total);
-            res.render('payment.ejs',{total:req.session.total})
-        }else{
-            res.redirect('/login');
-        }
-      
-    }
-    
-    
-            setTimeout( function2, 2000);
-        
-});
 
 
 module.exports=routes;

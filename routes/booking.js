@@ -31,6 +31,7 @@ routes.post("/bookingstatus", function(req, res,next){
 
         
 }
+
 function function2() {
     // all the stuff you want to happen after that pause
     console.log('finally');
